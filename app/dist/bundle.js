@@ -11,7 +11,7 @@ var _myController2 = _interopRequireDefault(_myController);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-angular.module('wallapop', []).service('userService', _serviceData2.default).controller('MyController', _myController2.default);
+angular.module('wallapop', []).service('dataService', _serviceData2.default).controller('MyController', _myController2.default);
 
 // function myController($scope, myData){
 //     $scope.hello = 'Hello Angular'
@@ -83,7 +83,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var MyController = function () {
-  function MyController(userService) {
+  function MyController(dataService) {
     var _this = this;
 
     _classCallCheck(this, MyController);
@@ -92,7 +92,7 @@ var MyController = function () {
     this.hello = "Hello Angular";
     this.reverse;
     this.predicate;
-    userService.getData().then(function (result) {
+    dataService.getData().then(function (result) {
       return _this.data = result['items'];
     });
   }
@@ -120,7 +120,7 @@ var MyController = function () {
   return MyController;
 }();
 
-MyController.$inject = ['userService'];
+MyController.$inject = ['dataService'];
 exports.default = MyController;
 
 },{}],3:[function(require,module,exports){
@@ -134,14 +134,14 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var UserService = function () {
-  function UserService($http) {
-    _classCallCheck(this, UserService);
+var DataService = function () {
+  function DataService($http) {
+    _classCallCheck(this, DataService);
 
     this.$http = $http;
   }
 
-  _createClass(UserService, [{
+  _createClass(DataService, [{
     key: 'getData',
     value: function getData() {
       return this.$http.get('items.json').then(function (result) {
@@ -150,9 +150,9 @@ var UserService = function () {
     }
   }]);
 
-  return UserService;
+  return DataService;
 }();
 
-exports.default = UserService;
+exports.default = DataService;
 
 },{}]},{},[1]);

@@ -1,10 +1,10 @@
 class MyController {
-  constructor(userService) {
+  constructor(dataService) {
       this.myList = [];
       this.hello = "Hello Angular";
       this.reverse;
       this.predicate;
-      userService.getData()
+      dataService.getData()
           .then(result =>
             this.data = result['items']
           );
@@ -25,5 +25,5 @@ class MyController {
 
 
 
-MyController.$inject = ['userService'];
+MyController.$inject = ['dataService'];
 export default MyController;

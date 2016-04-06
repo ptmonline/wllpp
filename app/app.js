@@ -1,9 +1,9 @@
 'use strict';
- import UserService from './services/serviceData.js'
+ import DataService from './services/serviceData.js'
  import MyController from './controllers/myController.js'
 
 angular.module('wallapop',[])
-  .service('userService', UserService)
+  .service('dataService', DataService)
   .controller('MyController', MyController);
 
 // function myController($scope, myData){
