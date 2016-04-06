@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html ng-app="wallapop">
+  <head>
+    <meta charset="utf-8">
+    <title>WALLAPOP</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <style media="screen">
+      #blank{
+        width:100%;
+        height:100%;
+        display:block;
+        position:absolute;
+        top:0;
+        left:0;
+        background: rgba(0,0,0, 0.7)
+      }
+      #blank.hidden{
+        display:none
+      }
+      .modal{
+        border:1px solid black;
+        width:70%;
+        height:70%;
+        display:block;
+        position:absolute;
+        top:10%;
+        left:10%;
+        background: white;
+        z-index:2;
+        overflow:auto
+      }
+      .modal.hidden{
+        display:none;
+      }
+    </style>
+  </head>
+  <body ng-controller="MyController as myCtrl">
+    <h1 ng-click="myCtrl.openModal()">Hello</h1>
+    <p>Search by title: <input type="text" ng-model="search.title"></p>
+    <p>Search by desciption: <input type="text" ng-model="search.description"></p>
+    <p>Search by email: <input type="text" ng-model="search.email"></p>
+    <p>Search by price: <input type="text" ng-model="search.price"></p>
+    <div>
+      <p>Order By: </p>
+      <button ng-click="myCtrl.order('title')">title</button>
+         <span class="sortorder" ng-show="predicate === 'title'" ng-class="{reverse:reverse}"></span>
+      <button ng-click="myCtrl.order('description')">description</button>
+        <span class="sortorder" ng-show="predicate === 'description'" ng-class="{reverse:reverse}"></span>
+      <button ng-click="myCtrl.order('email')">email</button>
+         <span class="sortorder" ng-show="predicate === 'email'" ng-class="{reverse:reverse}"></span>
+      <button ng-click="myCtrl.order('price')">price</button>
+         <span class="sortorder" ng-show="predicate === 'price'" ng-class="{reverse:reverse}"></span>
+    </div>
+    <div ng-repeat="items in myCtrl.data | filter:search | orderBy:predicate:reverse">
+      <div>
+        <h3>{{items.title}}</h3>
+        <img ng-src="assets/{{items.image}}" alt ="{{itmes.title}}" ng-click="myCtrl.addToMyList(items)" />
+        <p>{{items.description}}</p>
+        <p>{{items.email}}</p>
+        <p>{{items.price}}</p>
+
+        <hr>
+      </div>
+    </div>
+    <div id="blank" class="hidden">
+      <div id="mymodal" class="modal">
+        <div>
+          <p>Search by title: <input type="text" ng-model="searchModal.title"></p>
+        </div>
+        <div ng-repeat="item in myCtrl.myList | filter:searchModal ">
+          <h3>{{item.title}}</h3>
+          <img ng-src="assets/{{item.image}}" alt ="{{itmes.title}}" />
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="dist/bundle.js" charset="utf-8"></script>
+  <!-- <script src="app.js" charset="utf-8"></script> -->
+</html>
