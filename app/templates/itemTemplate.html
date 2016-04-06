@@ -1,0 +1,11 @@
+<div ng-repeat="items in myCtrl.data | filter:search | orderBy:predicate:reverse">
+  <div>
+    <h3>{{items.title}}</h3>
+    <img ng-src="assets/{{items.image}}" alt ="{{itmes.title}}" ng-click="myCtrl.addToMyList(items)" />
+    <p>{{items.description}}</p>
+    <p>{{items.email}}</p>
+    <p>{{items.price}}</p>
+
+    <hr>
+  </div>
+</div>

@@ -1,10 +1,11 @@
+'use strict';
 class DataService {
     constructor($http) {
       this.$http = $http;
     }
     getData() {
       return this.$http.get('items.json')
-        .then(function(result) {
+        .then(result => {
           return result.data;
         });
       }
