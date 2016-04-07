@@ -36,33 +36,35 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var MyController = function () {
   function MyController(dataService) {
+    var _this = this;
+
     _classCallCheck(this, MyController);
 
     this.myList = [];
     this.hello = "Hello Angular";
-    this.data = dataService['items'];
+    this.dataService = dataService;
     this.count = 0;
-    // dataService.getData()
-    //     .then(result =>
-    //       this.data = result['items']
-    //     );
-    // this.get();
+    dataService.getData().then(function (result) {
+      return _this.data = result['items'];
+    });
+    this.reverse;
+    this.predicate;
   }
 
   _createClass(MyController, [{
     key: 'get',
     value: function get() {
-      var _this = this;
+      var _this2 = this;
 
       this.dataService.getData().then(function (result) {
-        return _this.data = result['items'];
+        return _this2.data = result['items'];
       });
     }
   }, {
     key: 'order',
     value: function order(predicate) {
-      reverse = predicate === predicate ? !reverse : false;
-      predicate = predicate;
+      this.reverse = this.predicate === predicate ? !this.reverse : false;
+      this.predicate = predicate;
     }
   }, {
     key: 'addToMyList',
@@ -127,23 +129,28 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var DataService = function DataService($http) {
-  _classCallCheck(this, DataService);
+var DataService = function () {
+  function DataService($http) {
+    _classCallCheck(this, DataService);
 
-  this.$http = $http;
-  this.$http.get('items.json').then(function (result) {
-    return result.data;
-  });
-};
-// getData() {
-//   return this.$http.get('items.json')
-//     .then(result => {
-//       return result.data;
-//     });
-//   }
-// }
+    this.$http = $http;
+  }
+
+  _createClass(DataService, [{
+    key: 'getData',
+    value: function getData() {
+      return this.$http.get('items.json').then(function (result) {
+        return result.data;
+      });
+    }
+  }]);
+
+  return DataService;
+}();
 
 exports.default = DataService;
 

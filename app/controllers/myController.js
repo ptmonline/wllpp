@@ -9,7 +9,8 @@ class MyController {
           .then(result =>
             this.data = result['items']
           );
-      // this.get();
+      this.reverse;
+      this.predicate;
   }
   get(){
     this.dataService.getData()
@@ -18,8 +19,8 @@ class MyController {
         );
   }
   order(predicate) {
-      reverse = (predicate === predicate) ? !reverse : false;
-      predicate = predicate;
+      this.reverse = (this.predicate === predicate) ? !this.reverse : false;
+      this.predicate = predicate;
     };
   addToMyList(item){
     this.count +=1

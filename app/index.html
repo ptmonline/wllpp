@@ -42,13 +42,13 @@
     <div>
       <p>Order By: </p>
       <button ng-click="myCtrl.order('title')">title</button>
-         <span class="sortorder" ng-show="predicate === 'title'" ng-class="{reverse:reverse}"></span>
+         <span class="sortorder" ng-show="myCtrl.predicate === 'title'" ng-class="{reverse:reverse}"></span>
       <button ng-click="myCtrl.order('description')">description</button>
-        <span class="sortorder" ng-show="predicate === 'description'" ng-class="{reverse:reverse}"></span>
+        <span class="sortorder" ng-show="myCtrl.predicate === 'description'" ng-class="{reverse:reverse}"></span>
       <button ng-click="myCtrl.order('email')">email</button>
-         <span class="sortorder" ng-show="predicate === 'email'" ng-class="{reverse:reverse}"></span>
+         <span class="sortorder" ng-show="myCtrl.predicate === 'email'" ng-class="{reverse:reverse}"></span>
       <button ng-click="myCtrl.order('price')">price</button>
-         <span class="sortorder" ng-show="predicate === 'price'" ng-class="{reverse:reverse}"></span>
+         <span class="sortorder" ng-show="myCtrl.predicate === 'price'" ng-class="{reverse:reverse}"></span>
     </div>
     <div class="myList" ng-init="count = 0"  ng-click="myCtrl.openModal()">My List {{myCtrl.count}}</div>
     <!-- <div ng-repeat="items in myCtrl.data | filter:search | orderBy:predicate:reverse">
