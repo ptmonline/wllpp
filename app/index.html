@@ -15,6 +15,7 @@
         position:absolute;
         top:0;
         left:0;
+        z-index:9999;
         background: rgba(0,0,0, 0.7)
       }
       #blank.hidden{
@@ -22,15 +23,27 @@
       }
       .modal{
         border:1px solid black;
+        border-radius: 15px;
         width:70%;
         height:70%;
+        padding: 10px;
         display:block;
         position:absolute;
         top:10%;
         left:10%;
+        z-index:99999;
         background: white;
-        z-index:2;
         overflow:auto
+      }
+      .closebtn{
+        background-image: url('assets/close.png');
+        background-repeat: no-repeat;
+        background-size:100% 100%;
+        width:40px;
+        height:40px;
+        position:absolute;
+        top:0;
+        right:0;
       }
       .modal.hidden{
         display:none;
@@ -40,11 +53,11 @@
   <body ng-controller="MyController as myCtrl">
     <navbar-container></navbar-container>
     <div class="item-wrapper section group"  infinite-scroll='myCtrl.loadMore()' infinite-scroll-distance='2'>
-        <div class="grid" >
-        <div class="grid-item" ng-repeat="items in myCtrl.data | filter:search | orderBy:myCtrl.predicate:reverse | limitTo:myCtrl.displaymore">
+        <!-- <div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }' > -->
+
           <item-container></item-container>
-        </div>
-      </div>
+
+      <!-- </div> -->
 
     </div>
     <modal-container></modal-container>
@@ -52,17 +65,17 @@
   <!-- <script src="dist/bundle.js" charset="utf-8"></script> -->
   <script src="scripts/infiniteScroll.js" charset="utf-8"></script>
   <script type="text/javascript">
-  // init with element
-    setTimeout(function(){
-      var grid = document.querySelector('.grid');
-      var msnry = new Masonry( grid, {
-      // options...
-      itemSelector: '.grid-item',
-      columnWidth: 120
-      });
-
-      console.log('Hello')
-    }, 1000)
+  //init with element
+    // setTimeout(function(){
+    //   var grid = document.querySelector('.grid');
+    //   var msnry = new Masonry( grid, {
+    //   // options...
+    //   itemSelector: '.grid-item',
+    //   columnWidth: 120
+    //   });
+    //
+    //   console.log('Hello')
+    // }, 1000)
 
   </script>
 </html>

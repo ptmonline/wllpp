@@ -1,6 +1,5 @@
-
-<div class="boxmodel">
-    <img ng-src="assets/{{items.image}}" alt ="{{itmes.title}}" ng-click="myCtrl.addToMyList(items)" width="280" height="280" />
+<div class="grid-item boxmodel col span_3_of_12" ng-click="myCtrl.addToMyList(items)" ng-repeat="items in myCtrl.data | filter:search | orderBy:myCtrl.predicate:reverse | limitTo:myCtrl.displaymore">
+    <img ng-src="assets/{{items.image}}" alt ="{{itmes.title}}"  width="280" height="280" />
     <div class="item-model-content">
       <h3>{{items.title}}</h3>
       <p>{{items.description}}</p>

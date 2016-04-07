@@ -24,6 +24,8 @@ class MyController {
   addToMyList(item){
     this.count +=1
     this.myList.push(item);
+    console.log('added');
+    console.log(this.myList)
   }
   removeFromList(index){
     this.count -=1

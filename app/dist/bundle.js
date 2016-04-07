@@ -81,6 +81,8 @@ var MyController = function () {
     value: function addToMyList(item) {
       this.count += 1;
       this.myList.push(item);
+      console.log('added');
+      console.log(this.myList);
     }
   }, {
     key: 'removeFromList',
