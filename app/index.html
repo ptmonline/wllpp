@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>WALLAPOP</title>
+    <link rel="stylesheet" href="stylesheet/grid.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="stylesheet/main.css" media="screen" title="no title" charset="utf-8">
     <style media="screen">
       #blank{
         width:100%;
@@ -34,50 +36,12 @@
     </style>
   </head>
   <body ng-controller="MyController as myCtrl">
-    <h1>Hello</h1>
-    <p>Search by title: <input type="text" ng-model="search.title"></p>
-    <p>Search by desciption: <input type="text" ng-model="search.description"></p>
-    <p>Search by email: <input type="text" ng-model="search.email"></p>
-    <p>Search by price: <input type="text" ng-model="search.price"></p>
-    <div>
-      <p>Order By: </p>
-      <button ng-click="myCtrl.order('title')">title</button>
-         <span class="sortorder" ng-show="myCtrl.predicate === 'title'" ng-class="{reverse:reverse}"></span>
-      <button ng-click="myCtrl.order('description')">description</button>
-        <span class="sortorder" ng-show="myCtrl.predicate === 'description'" ng-class="{reverse:reverse}"></span>
-      <button ng-click="myCtrl.order('email')">email</button>
-         <span class="sortorder" ng-show="myCtrl.predicate === 'email'" ng-class="{reverse:reverse}"></span>
-      <button ng-click="myCtrl.order('price')">price</button>
-         <span class="sortorder" ng-show="myCtrl.predicate === 'price'" ng-class="{reverse:reverse}"></span>
-    </div>
-    <div class="myList" ng-init="count = 0"  ng-click="myCtrl.openModal()">My List {{myCtrl.count}}</div>
-    <!-- <div ng-repeat="items in myCtrl.data | filter:search | orderBy:predicate:reverse">
-      <div>
-        <h3>{{items.title}}</h3>
-        <img ng-src="assets/{{items.image}}" alt ="{{itmes.title}}" ng-click="myCtrl.addToMyList(items)" />
-        <p>{{items.description}}</p>
-        <p>{{items.email}}</p>
-        <p>{{items.price}}</p>
-
-        <hr>
-      </div>
-    </div> -->
-    <!-- <div ng-repeat="items in myCtrl.data | filter:search | orderBy:predicate:reverse"> -->
+    <navbar-container></navbar-container>
+    <div  infinite-scroll='myCtrl.loadMore()' infinite-scroll-distance='2'>
       <item-container></item-container>
-    <!-- </div> -->
-    <div id="blank" class="hidden">
-      <div id="mymodal" class="modal">
-        <div>
-          <p>Search by title: <input type="text" ng-model="searchModal.title"></p>
-          <p ng-click="myCtrl.closeModal()">Close X</p>
-        </div>
-        <div ng-repeat="item in myCtrl.myList | filter:searchModal ">
-          <h3>{{item.title}}</h3>
-          <img ng-src="assets/{{item.image}}" alt ="{{itmes.title}}" ng-click="myCtrl.removeFromList($index)" />
-        </div>
-      </div>
     </div>
+    <modal-container></modal-container>
   </body>
   <script src="dist/bundle.js" charset="utf-8"></script>
-  <!-- <script src="app.js" charset="utf-8"></script> -->
+  <script src="scripts/infiniteScroll.js" charset="utf-8"></script>
 </html>

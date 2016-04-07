@@ -1,4 +1,4 @@
-<div ng-repeat="items in myCtrl.data | filter:search | orderBy:myCtrl.predicate:reverse">
+<div class="boxmodel" ng-repeat="items in myCtrl.data | filter:search | orderBy:myCtrl.predicate:reverse | limitTo:myCtrl.displaymore">
   <div>
     <h3>{{items.title}}</h3>
     <img ng-src="assets/{{items.image}}" alt ="{{itmes.title}}" ng-click="myCtrl.addToMyList(items)" />

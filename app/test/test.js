@@ -1,9 +1,9 @@
 import angular from 'angular'
-import { assert } from 'chai';
 // import angularmock from 'angular-mock'
 import MyController from '../controllers/myController.js';
 import DataService from '../services/serviceData.js';
 let foo;
+let bar;
 describe('ES6 Foo', function () {
 
 //   let dataService;
@@ -15,16 +15,15 @@ describe('ES6 Foo', function () {
 //     _myService = myService;
 // }]));
     beforeEach(()=>{
-        foo = DataService();
+        bar = DataService.getData();
+        foo = new MyController();
     });
 
     it('should return Hello Angular', ()=>{
-        // expect(foo.hello).toEqual('Hello Angular');
-        // expect(foo.myList).toEqual([]);
-        // assert.equal(foo.hello, 'Hello Angular');
-        assert.equal(foo.data.length, 0);
+        expect(foo.hello).toEqual('Hello Angular');
+        expect(foo.myList).toEqual([]);
     });
-    // it('should return Do Something when calling doSomething', ()=>{
-    //     expect(foo.myList).toEqual([]);
-    // });
+    it('should return Do Something when calling doSomething', ()=>{
+        expect(foo.myList).toEqual([]);
+    });
 });

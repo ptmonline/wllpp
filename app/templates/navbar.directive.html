@@ -1,0 +1,25 @@
+<div class="header">
+  <div class="modelsearch model-title">Search by title: <input type="text" ng-model="search.title"></div>
+  <div class="modelsearch model-title">Search by desciption: <input type="text" ng-model="search.description"></div>
+  <div class="modelsearch model-title">Search by email: <input type="text" ng-model="search.email"></div>
+  <div class="modelsearch model-title">Search by price: <input type="text" ng-model="search.price"></div>
+  <!-- <ul>
+        <li ng-click="myCtrl.addSelected('title')">title</li>
+        <li ng-click="myCtrl.addSelected('description')">description</li>
+        <li ng-click="myCtrl.addSelected('email')">email</li>
+        <li ng-click="myCtrl.addSelected('price')">Price</li>
+  </ul>
+      <p>Search by title: <input type="text" {{myCtrl.selectedItem}}></p> -->
+  <div>
+    <p>Order By: </p>
+    <button ng-click="myCtrl.order('title')">title</button>
+       <span class="sortorder" ng-show="myCtrl.predicate === 'title'" ng-class="{reverse:reverse}"></span>
+    <button ng-click="myCtrl.order('description')">description</button>
+      <span class="sortorder" ng-show="myCtrl.predicate === 'description'" ng-class="{reverse:reverse}"></span>
+    <button ng-click="myCtrl.order('email')">email</button>
+       <span class="sortorder" ng-show="myCtrl.predicate === 'email'" ng-class="{reverse:reverse}"></span>
+    <button ng-click="myCtrl.order('price')">price</button>
+       <span class="sortorder" ng-show="myCtrl.predicate === 'price'" ng-class="{reverse:reverse}"></span>
+  </div>
+  <div class="myList" ng-init="count = 0"  ng-click="myCtrl.openModal()">My List {{myCtrl.count}}</div>
+</div>

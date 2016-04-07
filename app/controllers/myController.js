@@ -3,20 +3,19 @@ class MyController {
   constructor(dataService) {
       this.myList = [];
       this.hello = "Hello Angular";
-      this.dataService = dataService;
       this.count = 0;
-      dataService.getData()
+      this.selectedItem;
+      this.displaymore = 4;
+      this.dataService = dataService.getData()
           .then(result =>
             this.data = result['items']
           );
       this.reverse;
       this.predicate;
   }
-  get(){
-    this.dataService.getData()
-        .then(result =>
-          this.data = result['items']
-        );
+  addSelected(selection){
+    this.selectedItem = "ng-model='search." + selection + "'";
+    console.log(this.selectedItem)
   }
   order(predicate) {
       this.reverse = (this.predicate === predicate) ? !this.reverse : false;
@@ -25,13 +24,10 @@ class MyController {
   addToMyList(item){
     this.count +=1
     this.myList.push(item);
-    console.log(this.myList)
-
   }
   removeFromList(index){
     this.count -=1
     this.myList.splice(index, 1);
-    console.log(this.myList)
   }
   openModal(){
     let myblank = document.getElementById('blank');
@@ -40,6 +36,9 @@ class MyController {
   closeModal(){
     let myblank = document.getElementById('blank');
     myblank.classList.add('hidden');
+  }
+  loadMore (dataService) {
+    this.displaymore += 4;
   }
 }
 

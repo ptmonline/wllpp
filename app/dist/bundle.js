@@ -13,17 +13,29 @@ var _myController = require('./controllers/myController.js');
 
 var _myController2 = _interopRequireDefault(_myController);
 
-var _itemDirective = require('./directives/itemDirective.js');
+var _itemDirective = require('./directives/item.directive.js');
 
 var _itemDirective2 = _interopRequireDefault(_itemDirective);
 
+var _modalDirective = require('./directives/modal.directive.js');
+
+var _modalDirective2 = _interopRequireDefault(_modalDirective);
+
+var _navbarDirective = require('./directives/navbar.directive.js');
+
+var _navbarDirective2 = _interopRequireDefault(_navbarDirective);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_angular2.default.module('wallapop', []).service('dataService', _serviceData2.default).controller('MyController', _myController2.default).directive('itemContainer', function () {
+_angular2.default.module('wallapop', ['infinite-scroll']).service('dataService', _serviceData2.default).controller('MyController', _myController2.default).directive('itemContainer', function () {
   return new _itemDirective2.default();
+}).directive('modalContainer', function () {
+  return new _modalDirective2.default();
+}).directive('navbarContainer', function () {
+  return new _navbarDirective2.default();
 });
 
-},{"./controllers/myController.js":2,"./directives/itemDirective.js":3,"./services/serviceData.js":4,"angular":6}],2:[function(require,module,exports){
+},{"./controllers/myController.js":2,"./directives/item.directive.js":3,"./directives/modal.directive.js":4,"./directives/navbar.directive.js":5,"./services/serviceData.js":6,"angular":8}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42,9 +54,10 @@ var MyController = function () {
 
     this.myList = [];
     this.hello = "Hello Angular";
-    this.dataService = dataService;
     this.count = 0;
-    dataService.getData().then(function (result) {
+    this.selectedItem;
+    this.displaymore = 4;
+    this.dataService = dataService.getData().then(function (result) {
       return _this.data = result['items'];
     });
     this.reverse;
@@ -52,13 +65,10 @@ var MyController = function () {
   }
 
   _createClass(MyController, [{
-    key: 'get',
-    value: function get() {
-      var _this2 = this;
-
-      this.dataService.getData().then(function (result) {
-        return _this2.data = result['items'];
-      });
+    key: 'addSelected',
+    value: function addSelected(selection) {
+      this.selectedItem = "ng-model='search." + selection + "'";
+      console.log(this.selectedItem);
     }
   }, {
     key: 'order',
@@ -71,14 +81,12 @@ var MyController = function () {
     value: function addToMyList(item) {
       this.count += 1;
       this.myList.push(item);
-      console.log(this.myList);
     }
   }, {
     key: 'removeFromList',
     value: function removeFromList(index) {
       this.count -= 1;
       this.myList.splice(index, 1);
-      console.log(this.myList);
     }
   }, {
     key: 'openModal',
@@ -91,6 +99,11 @@ var MyController = function () {
     value: function closeModal() {
       var myblank = document.getElementById('blank');
       myblank.classList.add('hidden');
+    }
+  }, {
+    key: 'loadMore',
+    value: function loadMore(dataService) {
+      this.displaymore += 4;
     }
   }]);
 
@@ -112,10 +125,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var ItemContainer = function ItemContainer() {
       _classCallCheck(this, ItemContainer);
 
-      this.templateUrl = './templates/itemTemplate.html';
+      this.templateUrl = './templates/item.directive.html';
       this.restrict = 'E';
       this.replace = false;
       this.controller = 'MyController';
+      this.controllerAs = 'myCtrl';
       this.bindToController = true;
       this.transclude = true;
 };
@@ -123,6 +137,52 @@ var ItemContainer = function ItemContainer() {
 exports.default = ItemContainer;
 
 },{}],4:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+      value: true
+});
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var ModalContainer = function ModalContainer() {
+      _classCallCheck(this, ModalContainer);
+
+      this.templateUrl = './templates/modal.directive.html';
+      this.restrict = 'E';
+      this.replace = false;
+      this.controller = 'MyController';
+      this.controllerAs = 'myCtrl';
+      this.bindToController = true;
+      this.transclude = true;
+};
+
+exports.default = ModalContainer;
+
+},{}],5:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+      value: true
+});
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var NavBarContainer = function NavBarContainer() {
+      _classCallCheck(this, NavBarContainer);
+
+      this.templateUrl = './templates/navbar.directive.html';
+      this.restrict = 'E';
+      this.replace = false;
+      this.controller = 'MyController';
+      this.controllerAs = 'myCtrl';
+      this.bindToController = true;
+      this.transclude = true;
+};
+
+exports.default = NavBarContainer;
+
+},{}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -154,7 +214,7 @@ var DataService = function () {
 
 exports.default = DataService;
 
-},{}],5:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 /**
  * @license AngularJS v1.5.3
  * (c) 2010-2016 Google, Inc. http://angularjs.org
@@ -30869,8 +30929,8 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],6:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":5}]},{},[1]);
+},{"./angular":7}]},{},[1]);
