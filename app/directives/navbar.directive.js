@@ -4,8 +4,8 @@ class NavBarContainer{
         this.templateUrl = './templates/navbar.directive.html';
         this.restrict = 'E';
         this.replace = false;
-        this.controller = 'MyController';
-        this.controllerAs = 'myCtrl';
+        this.controller = 'OrderController';
+        this.controllerAs = 'orderCtrl';
         this.bindToController = true;
         this.transclude= true
   }

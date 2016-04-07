@@ -13,6 +13,10 @@ var _myController = require('./controllers/myController.js');
 
 var _myController2 = _interopRequireDefault(_myController);
 
+var _orderController = require('./controllers/order.controller.js');
+
+var _orderController2 = _interopRequireDefault(_orderController);
+
 var _itemDirective = require('./directives/item.directive.js');
 
 var _itemDirective2 = _interopRequireDefault(_itemDirective);
@@ -27,7 +31,7 @@ var _navbarDirective2 = _interopRequireDefault(_navbarDirective);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_angular2.default.module('wallapop', ['infinite-scroll']).service('dataService', _serviceData2.default).controller('MyController', _myController2.default).directive('itemContainer', function () {
+_angular2.default.module('wallapop', ['infinite-scroll']).service('dataService', _serviceData2.default).controller('MyController', _myController2.default).controller('OrderController', _orderController2.default).directive('itemContainer', function () {
   return new _itemDirective2.default();
 }).directive('modalContainer', function () {
   return new _modalDirective2.default();
@@ -35,7 +39,7 @@ _angular2.default.module('wallapop', ['infinite-scroll']).service('dataService',
   return new _navbarDirective2.default();
 });
 
-},{"./controllers/myController.js":2,"./directives/item.directive.js":3,"./directives/modal.directive.js":4,"./directives/navbar.directive.js":5,"./services/serviceData.js":6,"angular":8}],2:[function(require,module,exports){
+},{"./controllers/myController.js":2,"./controllers/order.controller.js":3,"./directives/item.directive.js":4,"./directives/modal.directive.js":5,"./directives/navbar.directive.js":6,"./services/serviceData.js":7,"angular":9}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -53,15 +57,17 @@ var MyController = function () {
     _classCallCheck(this, MyController);
 
     this.myList = [];
+    this.itemId = [];
     this.hello = "Hello Angular";
     this.count = 0;
     this.selectedItem;
     this.displaymore = 4;
-    this.dataService = dataService.getData().then(function (result) {
+    this.divAdded = false;
+    dataService.getData().then(function (result) {
       return _this.data = result['items'];
     });
-    this.reverse;
-    this.predicate;
+    // this.reverse;
+    // this.predicate;
   }
 
   _createClass(MyController, [{
@@ -70,32 +76,63 @@ var MyController = function () {
       this.selectedItem = "ng-model='search." + selection + "'";
       console.log(this.selectedItem);
     }
-  }, {
-    key: 'order',
-    value: function order(predicate) {
-      this.reverse = this.predicate === predicate ? !this.reverse : false;
-      this.predicate = predicate;
-    }
+    // order(predicate) {
+    //     this.reverse = (this.predicate === predicate) ? !this.reverse : false;
+    //     this.predicate = predicate;
+    //   };
+
   }, {
     key: 'addToMyList',
-    value: function addToMyList(item) {
-      this.count += 1;
-      this.myList.push(item);
-      console.log('added');
-      console.log(this.myList);
+    value: function addToMyList(item, index) {
+      console.log(index);
+
+      // this.divAdded = false;
+      var self = this;
+
+      var addedElem = document.getElementsByClassName('add-to-list');
+      addedElem[index].firstChild.innerHTML = 'ADDED';
+      var clickElem = document.getElementsByClassName('click-container');
+      console.log(addedElem);
+      if (clickElem[index].classList.contains('active')) {
+        return false;
+      } else {
+        this.myList.push(item);
+        this.count += 1;
+      }
+      // console.log(typeof addedElem)
+      // addedElem.forEach(function(elem){
+      //   console.log('hello')
+      // })
+      // console.log(addedElem)
+      // if(addedElem.classList.contains('active')){
+      //   // addedElem.classList.remove('active');
+      //   addedElem.innerHTML = 'ALREADY ADDED';
+      //   console.log('yes')
+      // }
+      // addedElem.firstChild.innerHTML = 'ALREADY ADDED';
+      self.divAdded = true;
+      console.log(self.divAdded);
+      this.itemId.push(index);
+      console.log(this.itemId);
     }
   }, {
     key: 'removeFromList',
-    value: function removeFromList(index) {
+    value: function removeFromList(index, indexId) {
+      var addedElem = document.getElementsByClassName('add-to-list');
+      addedElem[indexId].firstChild.innerHTML = 'ADD TO LIST';
+      addedElem[indexId].classList.remove('active');
+      console.log('removing ', indexId);
       this.count -= 1;
       this.myList.splice(index, 1);
+      this.itemId.splice(index, 1);
+      console.log(index);
+      console.log(this.itemId);
     }
-  }, {
-    key: 'openModal',
-    value: function openModal() {
-      var myblank = document.getElementById('blank');
-      myblank.classList.remove('hidden');
-    }
+    // openModal(){
+    //   let myblank = document.getElementById('blank');
+    //   myblank.classList.remove('hidden');
+    // }
+
   }, {
     key: 'closeModal',
     value: function closeModal() {
@@ -119,6 +156,44 @@ exports.default = MyController;
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var OrderController = function () {
+  function OrderController() {
+    _classCallCheck(this, OrderController);
+
+    this.reverse;
+    this.predicate;
+  }
+
+  _createClass(OrderController, [{
+    key: 'order',
+    value: function order(predicate) {
+      this.reverse = this.predicate === predicate ? !this.reverse : false;
+      this.predicate = predicate;
+    }
+  }, {
+    key: 'openModal',
+    value: function openModal() {
+      var myblank = document.getElementById('blank');
+      myblank.classList.remove('hidden');
+    }
+  }]);
+
+  return OrderController;
+}();
+
+exports.default = OrderController;
+
+},{}],4:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
       value: true
 });
 
@@ -138,7 +213,7 @@ var ItemContainer = function ItemContainer() {
 
 exports.default = ItemContainer;
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -161,7 +236,7 @@ var ModalContainer = function ModalContainer() {
 
 exports.default = ModalContainer;
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -176,15 +251,15 @@ var NavBarContainer = function NavBarContainer() {
       this.templateUrl = './templates/navbar.directive.html';
       this.restrict = 'E';
       this.replace = false;
-      this.controller = 'MyController';
-      this.controllerAs = 'myCtrl';
+      this.controller = 'OrderController';
+      this.controllerAs = 'orderCtrl';
       this.bindToController = true;
       this.transclude = true;
 };
 
 exports.default = NavBarContainer;
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -216,7 +291,7 @@ var DataService = function () {
 
 exports.default = DataService;
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 /**
  * @license AngularJS v1.5.3
  * (c) 2010-2016 Google, Inc. http://angularjs.org
@@ -30931,8 +31006,8 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":7}]},{},[1]);
+},{"./angular":8}]},{},[1]);

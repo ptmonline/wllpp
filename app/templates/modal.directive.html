@@ -4,8 +4,8 @@
       <p>Search by title: <input type="text" ng-model="searchModal.title"></p>
       <div class="closebtn"ng-click="myCtrl.closeModal()">&nbsp;</div>
     </div>
-    <div class="boxmodel col span_6_of_12" ng-repeat="item in myCtrl.myList | filter:searchModal ">
-      <img ng-src="assets/{{item.image}}" alt ="{{itmes.title}}" ng-click="myCtrl.removeFromList($index)" />
+    <div class="boxmodel col span_5_of_12" ng-repeat="itemMod in myCtrl.myList | filter:searchModal track by $index">
+      <img ng-src="assets/{{itemMod.image}}" attr="{{myCtrl.itemId[$index]}}" alt ="{{itemMod.title}}" ng-click="myCtrl.removeFromList($index, myCtrl.itemId[$index])" />
       <h3>{{item.title}}</h3>
     </div>
   </div>
