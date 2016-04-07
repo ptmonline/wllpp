@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>WALLAPOP</title>
+      <script src="dist/bundle.js" charset="utf-8"></script>
+    <script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
     <link rel="stylesheet" href="stylesheet/grid.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="stylesheet/main.css" media="screen" title="no title" charset="utf-8">
     <style media="screen">
@@ -37,11 +39,30 @@
   </head>
   <body ng-controller="MyController as myCtrl">
     <navbar-container></navbar-container>
-    <div  infinite-scroll='myCtrl.loadMore()' infinite-scroll-distance='2'>
-      <item-container></item-container>
+    <div class="item-wrapper section group"  infinite-scroll='myCtrl.loadMore()' infinite-scroll-distance='2'>
+        <div class="grid" >
+        <div class="grid-item" ng-repeat="items in myCtrl.data | filter:search | orderBy:myCtrl.predicate:reverse | limitTo:myCtrl.displaymore">
+          <item-container></item-container>
+        </div>
+      </div>
+
     </div>
     <modal-container></modal-container>
   </body>
-  <script src="dist/bundle.js" charset="utf-8"></script>
+  <!-- <script src="dist/bundle.js" charset="utf-8"></script> -->
   <script src="scripts/infiniteScroll.js" charset="utf-8"></script>
+  <script type="text/javascript">
+  // init with element
+    setTimeout(function(){
+      var grid = document.querySelector('.grid');
+      var msnry = new Masonry( grid, {
+      // options...
+      itemSelector: '.grid-item',
+      columnWidth: 120
+      });
+
+      console.log('Hello')
+    }, 1000)
+
+  </script>
 </html>

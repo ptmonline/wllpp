@@ -1,20 +1,85 @@
+.headerfontstyle {
+  font-family: Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: #6a6a6a;
+}
+.boxfontstyle {
+  font-family: Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: lighter;
+  color: #6a6a6a;
+}
 .header {
   width: 100%;
   height: 50px;
   position: fixed;
   top: 0;
   left: 0;
-  background-color: teal;
+  background-color: #5ba6ad;
 }
 .header .modelsearch {
   width: 200px;
   float: left;
 }
-.boxmodel {
-  width: 300px;
-  height: 530px;
+.clear:before,
+.clear:after {
+  content: " ";
+  display: table;
+}
+.clear:after {
+  clear: both;
+}
+* {
+  box-sizing: border-box;
+}
+.grid {
+  max-width: 1200px;
+}
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.grid-item {
+  width: 23.8%;
+  float: left;
+}
+.item-wrapper {
+  width: 960px;
+  margin: 80px auto 20px;
+  position: relative;
+}
+.item-wrapper .boxmodel {
+  font-family: Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: lighter;
+  color: #6a6a6a;
+  height: 100%;
+  margin-top: 10px;
   border-radius: 15px;
   border: 1px solid gray;
+  padding: 0;
+  overflow-x: hidden;
+}
+.item-wrapper .boxmodel .item-model-content {
   padding: 10px;
-  float: left;
+}
+.item-wrapper .boxmodel .item-model-content h3 {
+  font-family: Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: #6a6a6a;
+  margin-top: 0;
+}
+.item-wrapper .boxmodel .item-model-content .model-item-email {
+  color: #5ba6ad;
+  text-decoration: underline;
+}
+.item-wrapper .boxmodel .item-model-content .model-item-price {
+  color: #3ca4ad;
+}
+.item-wrapper .boxmodel img {
+  display: block;
+  margin: 0 auto;
 }

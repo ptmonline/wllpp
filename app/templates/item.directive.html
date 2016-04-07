@@ -1,11 +1,10 @@
-<div class="boxmodel" ng-repeat="items in myCtrl.data | filter:search | orderBy:myCtrl.predicate:reverse | limitTo:myCtrl.displaymore">
-  <div>
-    <h3>{{items.title}}</h3>
-    <img ng-src="assets/{{items.image}}" alt ="{{itmes.title}}" ng-click="myCtrl.addToMyList(items)" />
-    <p>{{items.description}}</p>
-    <p>{{items.email}}</p>
-    <p>{{items.price}}</p>
 
-    <hr>
+<div class="boxmodel">
+    <img ng-src="assets/{{items.image}}" alt ="{{itmes.title}}" ng-click="myCtrl.addToMyList(items)" width="280" height="280" />
+    <div class="item-model-content">
+      <h3>{{items.title}}</h3>
+      <p>{{items.description}}</p>
+      <a ng-href="mailto:{{items.email}}"class="model-item-email">{{items.email}}</a>
+      <p class="model-item-price">$ {{items.price}}</p>
   </div>
 </div>
