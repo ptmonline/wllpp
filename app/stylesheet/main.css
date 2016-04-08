@@ -1,4 +1,5 @@
-/* MIXINS */
+/* **********           COMMON STYLING           ******************************/
+/* **********           MIXINGS           *************************************/
 .headerfontstyle {
   font-family: 'Helvetica', sans-serif;
   font-size: 0.9375em;
@@ -11,7 +12,9 @@
   font-weight: lighter;
   color: #6a6a6a;
 }
-/* HEADER STYLING */
+/******************************************************************************/
+/* **********           HEADER STYLING           ******************************/
+/******************************************************************************/
 .header-wrapper {
   width: 100%;
   height: 70px;
@@ -68,7 +71,7 @@
 .header-wrapper .order-menu {
   width: 60em;
   background-color: #ffffff;
-  margin: 1.5em auto;
+  margin: 1.25em auto;
 }
 .header-wrapper .order-menu .order-tag {
   text-align: right;
@@ -91,6 +94,9 @@
 * {
   box-sizing: border-box;
 }
+/******************************************************************************/
+/* **********           ITEMS STYLING           *******************************/
+/******************************************************************************/
 .item-wrapper {
   width: 60em;
   margin: 7.6em auto 1.25em;
@@ -99,6 +105,7 @@
 @media (max-width: 480px) {
   .item-wrapper {
     width: 100%;
+    margin: 6em auto 1.25em;
   }
 }
 .boxmodel {
@@ -150,6 +157,7 @@
   background: rgba(0, 0, 0, 0.7);
   opacity: 0;
   transition: opacity 1s;
+  z-index: 0;
 }
 .boxmodel .add-to-list span {
   font-size: 32px;
@@ -166,7 +174,9 @@
   opacity: 0.3;
   z-index: 9999999;
 }
-/* MODAL STYLING*/
+/******************************************************************************/
+/* **********           MODAL LAYOUT             ******************************/
+/******************************************************************************/
 #blank {
   width: 100%;
   height: 100%;
@@ -183,7 +193,7 @@
 #blank .modal {
   border: 1px solid black;
   border-radius: 0.9375em;
-  width: 60%;
+  width: 80%;
   height: 70%;
   display: block;
   position: fixed;
@@ -191,7 +201,7 @@
   left: 10%;
   z-index: 99999;
   background: white;
-  overflow: hidden;
+  overflow: auto;
 }
 @media (max-width: 480px) {
   #blank .modal {
@@ -209,7 +219,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: black;
+  background: #5ba6ad;
   z-index: 99;
 }
 #blank .modal .modal-header .search-bar label {
@@ -234,15 +244,19 @@
   display: block;
   width: 100%;
   height: 100%;
-  padding: 5em 0.625em 2.5em;
+  padding: 5em 0.625em 5em;
+  margin-bottom: 1em;
 }
 #blank .modal .modal-content .boxmodel-modal {
   font-family: 'Helvetica', sans-serif;
   font-size: 0.8125em;
   font-weight: lighter;
   color: #6a6a6a;
+  font-size: 0.7em;
+  width: 49.2%;
   height: 7.5em;
   margin-top: 0.625em;
+  margin-left: 0.4em;
   border-radius: 0.9375em;
   border: 1px solid gray;
   padding: 0;
@@ -254,13 +268,38 @@
 #blank .modal .modal-content .boxmodel-modal img {
   float: left;
 }
-#blank .modal .modal-content .boxmodel-modal h3 {
+#blank .modal .modal-content .boxmodel-modal .modal-text {
+  width: 60%;
+  height: 100%;
+  margin-left: 40%;
+}
+#blank .modal .modal-content .boxmodel-modal .modal-text h3 {
   font-family: 'Helvetica', sans-serif;
   font-size: 0.9375em;
   font-weight: 300;
   color: #6a6a6a;
-  margin-top: 0;
+  font-size: 1.1em;
+  margin-top: 1em;
+  margin-left: 1em;
   float: left;
+}
+#blank .modal .modal-content .boxmodel-modal .modal-remove-item {
+  position: absolute;
+  right: 1em;
+  bottom: 0.5em;
+  text-align: right;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 1.4em;
+  font-variant: small-caps;
+  cursor: pointer;
+}
+#blank .modal .modal-content .boxmodel-modal .modal-remove-item:hover {
+  color: #4A89D6;
+}
+@media (max-width: 480px) {
+  #blank .modal .modal-content .boxmodel-modal {
+    width: 100%;
+  }
 }
 #blank .closebtn {
   background-image: url('../assets/close.png');
@@ -272,6 +311,9 @@
   top: 0;
   right: 0;
 }
+/******************************************************************************/
+/* **********           MOBILE                   ******************************/
+/******************************************************************************/
 @media (max-width: 480px) {
   .boxmodel {
     height: 100%;
@@ -309,11 +351,12 @@
     display: block;
     width: 100px;
     height: 40px;
-    border: 2px solid #1C1A0F;
+    border: 2px solid 56.47058824%;
     border-radius: 5px;
     position: absolute;
+    background: #4A89D6;
     top: 0;
-    left: 1em;
+    left: 0.5em;
     text-align: center;
     padding: 7px;
     margin-top: 5px;
@@ -345,28 +388,22 @@
   }
   .header-wrapper .order-menu {
     width: 100%;
-    margin: 3.5em auto;
+    margin: 3.1em auto 0.6em;
+    padding-left: 0.5em;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .header-wrapper .order-menu .span_2_of_12 {
+    width: 5.7em;
+    margin: 0.7em 0;
   }
   .header-wrapper .order-menu .order-tag {
-    width: 20%;
-    text-align: left;
-    padding: 0.3125em 0em 0.3125em 0.325em;
-    font-family: 'Helvetica', sans-serif;
-    font-size: 0.9375em;
-    font-variant: small-caps;
     display: none;
   }
   .header-wrapper .order-menu .order-btn {
-    width: 6em;
-    margin: 0.2em;
-    float: left;
-    height: 30px;
-    border-radius: 5px;
-    padding: 0.3125em 0.3125em 0.3125em 0.625em;
-    font-family: 'Helvetica', sans-serif;
-    font-size: 0.9375em;
-    font-variant: small-caps;
-    background-color: #9dbfe9;
-    color: #ffffff;
+    width: 5.7em;
+    padding: 0.3125em 0.3125em 0.3125em;
+    text-align: center;
   }
 }

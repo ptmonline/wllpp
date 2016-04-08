@@ -58,7 +58,6 @@ var MyController = function () {
 
     this.myList = [];
     this.itemId = [];
-    this.hello = "Hello Angular";
     this.count = 0;
     this.selectedItem;
     this.displaymore = 5;
@@ -68,26 +67,20 @@ var MyController = function () {
   }
 
   _createClass(MyController, [{
-    key: 'addSelected',
-    value: function addSelected(selection) {
-      this.selectedItem = "ng-model='search." + selection + "'";
-      console.log(this.selectedItem);
-    }
-  }, {
     key: 'addToMyList',
     value: function addToMyList(item, index) {
       var addedElem = document.getElementsByClassName('add-to-list');
       addedElem[index].firstChild.innerHTML = 'ADDED';
       var clickElem = document.getElementsByClassName('click-container');
-      console.log(addedElem);
+      addedElem[index].classList.add('active');
       if (clickElem[index].classList.contains('active')) {
         return false;
       } else {
         this.myList.push(item);
         this.count += 1;
+        clickElem[index].classList.add('active');
       }
       this.itemId.push(index);
-      console.log(this.itemId);
     }
   }, {
     key: 'removeFromList',
@@ -97,12 +90,9 @@ var MyController = function () {
       addedElem[indexId].firstChild.innerHTML = 'ADD TO LIST';
       addedElem[indexId].classList.remove('active');
       clickElem[indexId].classList.remove('active');
-      console.log('removing ', indexId);
       this.count -= 1;
       this.myList.splice(index, 1);
       this.itemId.splice(index, 1);
-      console.log(index);
-      console.log(this.itemId);
     }
   }, {
     key: 'closeModal',
@@ -157,15 +147,10 @@ var OrderController = function () {
   }, {
     key: 'openMobileHeader',
     value: function openMobileHeader() {
-      console.log('hello mobile');
       var brg = document.getElementById('brgbtn');
       var hbox = document.getElementById('header-box');
       brg.classList.toggle('open');
       hbox.classList.toggle('active');
-      // brg.addEventListener('click', () => {
-      //   brg.classList.toggle('open');
-      //   hbox.classList.add('active');
-      // })
     }
   }]);
 

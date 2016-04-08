@@ -1,14 +1,16 @@
 <div id="blank" class="hidden">
   <div id="mymodal" class="modal">
-
-      <div class="modal-header">
+    <div class="modal-header">
         <div class="search-bar"><label>Search by title:</label> <input type="text" ng-model="searchModal.title"></div>
         <div class="closebtn"ng-click="myCtrl.closeModal()">&nbsp;</div>
       </div>
       <div class="modal-content">
-      <div class="boxmodel-modal col span_8_of_12" ng-repeat="itemMod in myCtrl.myList | filter:searchModal track by $index">
-        <img ng-src="assets/{{itemMod.image}}" attr="{{myCtrl.itemId[$index]}}" alt ="{{itemMod.title}}" ng-click="myCtrl.removeFromList($index, myCtrl.itemId[$index])" width="130"height="130" />
-        <h3>{{item.title}}</h3>
+      <div class="boxmodel-modal" ng-repeat="itemMod in myCtrl.myList | filter:searchModal track by $index">
+        <img ng-src="assets/{{itemMod.image}}" attr="{{myCtrl.itemId[$index]}}" alt ="{{itemMod.title}}"  width="130"height="130" />
+        <div class="modal-text">
+          <h3>{{itemMod.title}}</h3>
+        </div>
+        <div class="modal-remove-item" ng-click="myCtrl.removeFromList($index, myCtrl.itemId[$index])">remove item</div>
       </div>
     </div>
   </div>

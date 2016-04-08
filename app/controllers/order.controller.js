@@ -13,15 +13,10 @@ class OrderController{
     myblank.classList.remove('hidden');
   }
   openMobileHeader(){
-    console.log('hello mobile');
     let brg = document.getElementById('brgbtn');
     let hbox = document.getElementById('header-box');
     brg.classList.toggle('open');
     hbox.classList.toggle('active');
-    // brg.addEventListener('click', () => {
-    //   brg.classList.toggle('open');
-    //   hbox.classList.add('active');
-    // })
   }
 }
 export default OrderController;

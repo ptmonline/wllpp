@@ -1,5 +1,5 @@
 <div class="grid-item boxmodel col span_3_of_12"   ng-repeat="items in myCtrl.data | filter:search | filter:searchprice:true | orderBy:orderCtrl.predicate:reverse | limitTo:myCtrl.displaymore track by $index">
-  <div class="click-container" ng-class="{ active: $index == selected }" ng-click="myCtrl.addToMyList(items, $index); selected = $index">
+  <div class="click-container"  attr="myCtrl.$index" ng-click="myCtrl.addToMyList(items, $index); selected = $index">
     <img ng-src="assets/{{items.image}}" alt ="{{itmes.title}}"  width="280" height="280" />
     <div class="item-model-content">
       <h3>{{items.title}}</h3>
@@ -7,6 +7,6 @@
       <a ng-href="mailto:{{items.email}}"class="model-item-email">{{items.email}}</a>
       <p class="model-item-price">$ {{items.price}}</p>
   </div>
-  <div id="add-list" class="add-to-list" ng-class="{ active: $index == selected }"><span>ADD TO LIST</span></div>
+  <div id="add-list" class="add-to-list" attr="$index" ><span>ADD TO LIST</span></div>
 </div>
 </div>
