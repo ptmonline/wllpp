@@ -35,7 +35,7 @@ class MyController {
     let clickElem = document.getElementsByClassName('click-container');
     addedElem[indexId].firstChild.innerHTML = 'ADD TO LIST'
     addedElem[indexId].classList.remove('active');
-    clickElem[index].classList.remove('active')
+    clickElem[indexId].classList.remove('active')
     console.log('removing ', indexId)
     this.count -=1
     this.myList.splice(index, 1);

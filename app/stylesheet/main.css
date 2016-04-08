@@ -1,12 +1,13 @@
+/* MIXINS */
 .headerfontstyle {
-  font-family: Helvetica, sans-serif;
-  font-size: 15px;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 0.9375em;
   font-weight: 300;
   color: #6a6a6a;
 }
 .boxfontstyle {
-  font-family: Helvetica, sans-serif;
-  font-size: 13px;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 0.8125em;
   font-weight: lighter;
   color: #6a6a6a;
 }
@@ -17,28 +18,31 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 999;
+  z-index: 9999;
   background-color: #5ba6ad;
 }
+.header-wrapper .mobile-menu {
+  display: none;
+}
 .header-wrapper .header {
-  width: 960px;
+  width: 60em;
   height: 50px;
   position: relative;
   margin: 0 auto;
   z-index: 999;
 }
 .header-wrapper .header .modelsearch label {
-  width: 120px;
-  height: 30px;
-  padding: 5px;
-  font-family: Helvetica, sans-serif;
-  font-size: 13px;
+  width: 7.5em;
+  height: 1.875em;
+  padding: 0.3125em;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 0.8125em;
   color: #FDFDFD;
 }
 .header-wrapper .header .modelsearch input[type="text"] {
   width: 100%;
-  height: 30px;
-  padding: 5px 10px;
+  height: 2.575em;
+  padding: 0.3125em 0.625em;
   border-radius: 5px;
   background-color: #FDFDFC;
 }
@@ -46,17 +50,42 @@
   display: none;
 }
 .header-wrapper .header .myList {
-  width: 100px;
-  height: 30px;
-  position: absolute;
-  top: 10px;
-  right: 20px;
+  width: 100%;
+  height: 1.875em;
+  margin-top: 1.225em;
+  border: 1px solid #4A89D6;
   border-radius: 5px;
-  padding: 5px 5px 5px 10px;
+  padding: 0.3125em 0.3125em 0.3125em 0.625em;
   background: #4A89D6;
   color: #ffffff;
-  font-family: Helvetica, sans-serif;
-  font-size: 15px;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 0.9375em;
+  font-variant: small-caps;
+}
+.header-wrapper .mobile-menu-list {
+  display: none;
+}
+.header-wrapper .order-menu {
+  width: 60em;
+  background-color: #ffffff;
+  margin: 0 auto;
+}
+.header-wrapper .order-menu .order-tag {
+  text-align: right;
+  padding: 0.3125em 0.3125em 0.3125em 0.625em;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 0.9375em;
+  font-variant: small-caps;
+}
+.header-wrapper .order-menu .order-btn {
+  width: 9em;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 0.3125em 0.3125em 0.3125em 0.625em;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 0.9375em;
+  font-variant: small-caps;
 }
 * {
   box-sizing: border-box;
@@ -74,18 +103,23 @@
   float: left;
 }
 .item-wrapper {
-  width: 960px;
-  margin: 80px auto 20px;
+  width: 60em;
+  margin: 7em auto 1.25em;
   position: relative;
 }
+@media (max-width: 480px) {
+  .item-wrapper {
+    width: 100%;
+  }
+}
 .boxmodel {
-  font-family: Helvetica, sans-serif;
-  font-size: 13px;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 0.8125em;
   font-weight: lighter;
   color: #6a6a6a;
   height: 553px;
-  margin-top: 10px;
-  border-radius: 15px;
+  margin-top: 0.625em;
+  border-radius: 0.9375em;
   border: 1px solid gray;
   padding: 0;
   overflow-x: hidden;
@@ -93,11 +127,11 @@
   z-index: 999;
 }
 .boxmodel .item-model-content {
-  padding: 10px;
+  padding: 0.625em;
 }
 .boxmodel .item-model-content h3 {
-  font-family: Helvetica, sans-serif;
-  font-size: 15px;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 0.9375em;
   font-weight: 300;
   color: #6a6a6a;
   margin-top: 0;
@@ -130,10 +164,10 @@
 }
 .boxmodel .add-to-list span {
   font-size: 32px;
-  font-famnily: Helvetica;
+  font-family: 'Helvetica', sans-serif;
   display: block;
   color: #ffffff;
-  margin: 80px auto 0;
+  margin: 5em auto 0;
   text-align: center;
 }
 .boxmodel .add-to-list:hover {
@@ -159,7 +193,7 @@
 }
 #blank .modal {
   border: 1px solid black;
-  border-radius: 15px;
+  border-radius: 0.9375em;
   width: 60%;
   height: 70%;
   display: block;
@@ -171,13 +205,19 @@
   overflow: hidden;
   /*-webkit-overflow-scrolling: touch;*/
 }
+@media (max-width: 480px) {
+  #blank .modal {
+    width: 90%;
+    left: 5%;
+  }
+}
 #blank .modal.hidden {
   display: none;
 }
 #blank .modal .modal-header {
   width: 100%;
   height: 50px;
-  padding: 10px;
+  padding: 0.625em;
   position: absolute;
   top: 0;
   left: 0;
@@ -185,10 +225,10 @@
   z-index: 99;
 }
 #blank .modal .modal-header .search-bar label {
-  width: 120px;
-  height: 30px;
-  padding: 5px;
-  font-family: Helvetica, sans-serif;
+  width: 7.5em;
+  height: 1.875em;
+  padding: 0.3125em;
+  font-family: 'Helvetica', sans-serif;
   font-size: 13px;
   color: #FDFDFD;
   float: left;
@@ -196,8 +236,8 @@
 #blank .modal .modal-header .search-bar input[type="text"] {
   width: 50%;
   float: left;
-  height: 30px;
-  padding: 5px 10px;
+  height: 2.575em;
+  padding: 0.3125em 0.625em;
   border-radius: 5px;
   background-color: #FDFDFC;
 }
@@ -206,16 +246,16 @@
   display: block;
   width: 100%;
   height: 100%;
-  padding: 80px 10px 40px;
+  padding: 5em 0.625em 2.5em;
 }
 #blank .modal .modal-content .boxmodel-modal {
-  font-family: Helvetica, sans-serif;
-  font-size: 13px;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 0.8125em;
   font-weight: lighter;
   color: #6a6a6a;
-  height: 120px;
-  margin-top: 10px;
-  border-radius: 15px;
+  height: 7.5em;
+  margin-top: 0.625em;
+  border-radius: 0.9375em;
   border: 1px solid gray;
   padding: 0;
   float: left;
@@ -227,8 +267,8 @@
   float: left;
 }
 #blank .modal .modal-content .boxmodel-modal h3 {
-  font-family: Helvetica, sans-serif;
-  font-size: 15px;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 0.9375em;
   font-weight: 300;
   color: #6a6a6a;
   margin-top: 0;
@@ -238,9 +278,81 @@
   background-image: url('../assets/close.png');
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  width: 40px;
-  height: 40px;
+  width: 2.5em;
+  height: 2.5em;
   position: absolute;
   top: 0;
   right: 0;
+}
+@media (max-width: 480px) {
+  .boxmodel {
+    height: 100%;
+  }
+  .boxmodel .item-model-content {
+    margin-left: 133px;
+  }
+  .boxmodel img {
+    float: left;
+    width: 130px !important;
+    height: 130px !important;
+  }
+  .boxmodel .add-to-list span {
+    margin: 2.5em auto 0;
+  }
+  .header-wrapper {
+    height: 50px;
+  }
+  .header-wrapper .mobile-menu {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-image: url('../assets/mobilebtn.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    transition: background-image 1s;
+  }
+  .header-wrapper .mobile-menu.open {
+    background-image: url('../assets/close.png');
+  }
+  .header-wrapper .mobile-menu-list {
+    display: block;
+    width: 100px;
+    height: 40px;
+    border: 2px solid #1C1A0F;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 1em;
+    text-align: center;
+    padding: 7px;
+    margin-top: 5px;
+    color: #ffffff;
+    font-family: 'Helvetica', sans-serif;
+  }
+  .header-wrapper .header {
+    width: 100%;
+    height: 450px;
+    background-color: #5ba6ad;
+    margin-top: -450px;
+    transition: margin-top 1s;
+  }
+  .header-wrapper .header.active {
+    margin-top: 48px;
+  }
+  .header-wrapper .header .modelsearch {
+    padding: 0.5em 2em;
+  }
+  .header-wrapper .header .modelsearch input[type="text"] {
+    width: 100%;
+    height: 3.575em;
+  }
+  .header-wrapper .header .modelsearch label {
+    font-size: 1em;
+  }
+  .header-wrapper .header .myList {
+    display: none;
+  }
 }

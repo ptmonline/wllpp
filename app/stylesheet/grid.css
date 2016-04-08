@@ -39,7 +39,11 @@
 	.col {
 		margin: 1% 0 1% 0%;
 	}
+
 }
+
+
+
 /*  GRID OF TWELVE   ============================================================================= */
 
 .span_12_of_12 {
@@ -90,7 +94,13 @@
 	width: 6.86%;
 }
 
-
+/*@media only screen
+and (max-device-width : 768px)
+ {
+	.span_3_of_12 {
+		width: 17.5em;
+	}
+}*/
 /*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
 
 @media only screen and (max-width: 480px) {

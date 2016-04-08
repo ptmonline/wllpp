@@ -1,5 +1,9 @@
 <div class="header-wrapper">
-  <div class="header">
+  <div id="brgbtn" class="mobile-menu" ng-click="orderCtrl.openMobileHeader()">&nbsp;</div>
+  <div class="mobile-menu-list">
+    <div class="myList" ng-init="count = 0"  ng-click="orderCtrl.openModal()">My List {{myCtrl.count}}</div>
+  </div>
+  <div id="header-box section group" class="header">
       <div class="col span_3_of_12">
         <div class="modelsearch model-title">
           <label>Search by title</label>
@@ -24,17 +28,27 @@
         <input type="text" ng-model="searchprice.price">
       </div>
     </div>
-    <!-- <div>
-      <p>Order By: </p>
-      <button ng-click="orderCtrl.order('title')">title</button>
-         <span class="sortorder" ng-show="orderCtrl.predicate === 'title'" ng-class="{reverse:reverse}"></span>
-      <button ng-click="orderCtrl.order('description')">description</button>
-        <span class="sortorder" ng-show="orderCtrl.predicate === 'description'" ng-class="{reverse:reverse}"></span>
-      <button ng-click="orderCtrl.order('email')">email</button>
-         <span class="sortorder" ng-show="orderCtrl.predicate === 'email'" ng-class="{reverse:reverse}"></span>
-      <button ng-click="orderCtrl.order('price')">price</button>
-         <span class="sortorder" ng-show="orderCtrl.predicate === 'price'" ng-class="{reverse:reverse}"></span>
-    </div> -->
-    <div class="myList" ng-init="count = 0"  ng-click="orderCtrl.openModal()">My List {{myCtrl.count}}</div>
+    <div class="col span_2_of_12">
+      <div class="myList" ng-init="count = 0"  ng-click="orderCtrl.openModal()">My Favourite {{myCtrl.count}}</div>
+    </div>
+  </div>
+  <div class="order-menu section group">
+    <div class="order-tag col span_3_of_12">Order By:</div>
+    <div class="col span_2_of_12">
+      <div class="order-btn" ng-click="orderCtrl.order('title')">title</div>
+       <span class="sortorder" ng-show="orderCtrl.predicate === 'title'" ng-class="{reverse:reverse}"></span>
+    </div>
+    <div class="col span_2_of_12">
+    <div class="order-btn" ng-click="orderCtrl.order('description')">description</div>
+      <span class="sortorder" ng-show="orderCtrl.predicate === 'description'" ng-class="{reverse:reverse}"></span>
+    </div>
+    <div class="col span_2_of_12">
+    <div class="order-btn" ng-click="orderCtrl.order('email')">email</div>
+       <span class="sortorder" ng-show="orderCtrl.predicate === 'email'" ng-class="{reverse:reverse}"></span>
+    </div>
+    <div class="col span_2_of_12">
+    <div class="order-btn" ng-click="orderCtrl.order('price')">price</div>
+       <span class="sortorder" ng-show="orderCtrl.predicate === 'price'" ng-class="{reverse:reverse}"></span>
+    </div>
   </div>
 </div>

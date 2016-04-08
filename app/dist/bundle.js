@@ -96,7 +96,7 @@ var MyController = function () {
       var clickElem = document.getElementsByClassName('click-container');
       addedElem[indexId].firstChild.innerHTML = 'ADD TO LIST';
       addedElem[indexId].classList.remove('active');
-      clickElem[index].classList.remove('active');
+      clickElem[indexId].classList.remove('active');
       console.log('removing ', indexId);
       this.count -= 1;
       this.myList.splice(index, 1);
@@ -153,6 +153,19 @@ var OrderController = function () {
     value: function openModal() {
       var myblank = document.getElementById('blank');
       myblank.classList.remove('hidden');
+    }
+  }, {
+    key: 'openMobileHeader',
+    value: function openMobileHeader() {
+      console.log('hello mobile');
+      var brg = document.getElementById('brgbtn');
+      var hbox = document.getElementById('header-box');
+      brg.classList.toggle('open');
+      hbox.classList.toggle('active');
+      // brg.addEventListener('click', () => {
+      //   brg.classList.toggle('open');
+      //   hbox.classList.add('active');
+      // })
     }
   }]);
 
