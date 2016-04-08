@@ -7,28 +7,16 @@ class MyController {
       this.count = 0;
       this.selectedItem;
       this.displaymore = 4;
-      this.divAdded = false;
       dataService.getData()
           .then(result =>
             this.data = result['items']
           );
-      // this.reverse;
-      // this.predicate;
   }
   addSelected(selection){
     this.selectedItem = "ng-model='search." + selection + "'";
     console.log(this.selectedItem)
   }
-  // order(predicate) {
-  //     this.reverse = (this.predicate === predicate) ? !this.reverse : false;
-  //     this.predicate = predicate;
-  //   };
   addToMyList(item, index){
-    console.log(index)
-
-    // this.divAdded = false;
-    let self=this;
-
     let addedElem = document.getElementsByClassName('add-to-list');
     addedElem[index].firstChild.innerHTML = 'ADDED'
     let clickElem = document.getElementsByClassName('click-container');
@@ -39,19 +27,6 @@ class MyController {
       this.myList.push(item);
       this.count +=1
     }
-    // console.log(typeof addedElem)
-    // addedElem.forEach(function(elem){
-    //   console.log('hello')
-    // })
-    // console.log(addedElem)
-    // if(addedElem.classList.contains('active')){
-    //   // addedElem.classList.remove('active');
-    //   addedElem.innerHTML = 'ALREADY ADDED';
-    //   console.log('yes')
-    // }
-    // addedElem.firstChild.innerHTML = 'ALREADY ADDED';
-    self.divAdded = true;
-    console.log(self.divAdded)
     this.itemId.push(index);
     console.log(this.itemId)
   }
@@ -66,10 +41,6 @@ class MyController {
     console.log(index)
     console.log(this.itemId)
   }
-  // openModal(){
-  //   let myblank = document.getElementById('blank');
-  //   myblank.classList.remove('hidden');
-  // }
   closeModal(){
     let myblank = document.getElementById('blank');
     myblank.classList.add('hidden');
