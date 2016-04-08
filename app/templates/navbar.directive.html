@@ -1,18 +1,40 @@
-<div class="header">
-  <div class="modelsearch model-title">Search by title: <input type="text" ng-model="search.title"></div>
-  <div class="modelsearch model-title">Search by desciption: <input type="text" ng-model="search.description"></div>
-  <div class="modelsearch model-title">Search by email: <input type="text" ng-model="search.email"></div>
-  <div class="modelsearch model-title">Search by price: <input type="text" ng-model="search.price"></div>
-  <div>
-    <p>Order By: </p>
-    <button ng-click="orderCtrl.order('title')">title</button>
-       <span class="sortorder" ng-show="orderCtrl.predicate === 'title'" ng-class="{reverse:reverse}"></span>
-    <button ng-click="orderCtrl.order('description')">description</button>
-      <span class="sortorder" ng-show="orderCtrl.predicate === 'description'" ng-class="{reverse:reverse}"></span>
-    <button ng-click="orderCtrl.order('email')">email</button>
-       <span class="sortorder" ng-show="orderCtrl.predicate === 'email'" ng-class="{reverse:reverse}"></span>
-    <button ng-click="orderCtrl.order('price')">price</button>
-       <span class="sortorder" ng-show="orderCtrl.predicate === 'price'" ng-class="{reverse:reverse}"></span>
+<div class="header-wrapper">
+  <div class="header">
+      <div class="col span_3_of_12">
+        <div class="modelsearch model-title">
+          <label>Search by title</label>
+          <input type="text" ng-model="search.title">
+      </div>
+    </div>
+    <div class="col span_3_of_12">
+      <div class="modelsearch model-title">
+        <label>Search by desciption</label>
+        <input type="text" ng-model="search.description">
+      </div>
+    </div>
+    <div class="col span_2_of_12">
+      <div class="modelsearch model-title">
+        <label>Search by email</label>
+        <input type="text" ng-model="search.email">
+      </div>
+    </div>
+    <div class="col span_2_of_12">
+      <div class="modelsearch model-title">
+        <label>Search by price</label>
+        <input type="text" ng-model="searchprice.price">
+      </div>
+    </div>
+    <!-- <div>
+      <p>Order By: </p>
+      <button ng-click="orderCtrl.order('title')">title</button>
+         <span class="sortorder" ng-show="orderCtrl.predicate === 'title'" ng-class="{reverse:reverse}"></span>
+      <button ng-click="orderCtrl.order('description')">description</button>
+        <span class="sortorder" ng-show="orderCtrl.predicate === 'description'" ng-class="{reverse:reverse}"></span>
+      <button ng-click="orderCtrl.order('email')">email</button>
+         <span class="sortorder" ng-show="orderCtrl.predicate === 'email'" ng-class="{reverse:reverse}"></span>
+      <button ng-click="orderCtrl.order('price')">price</button>
+         <span class="sortorder" ng-show="orderCtrl.predicate === 'price'" ng-class="{reverse:reverse}"></span>
+    </div> -->
+    <div class="myList" ng-init="count = 0"  ng-click="orderCtrl.openModal()">My List {{myCtrl.count}}</div>
   </div>
-  <div class="myList" ng-init="count = 0"  ng-click="orderCtrl.openModal()">My List {{myCtrl.count}}</div>
 </div>

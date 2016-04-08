@@ -6,7 +6,7 @@ class MyController {
       this.hello = "Hello Angular";
       this.count = 0;
       this.selectedItem;
-      this.displaymore = 4;
+      this.displaymore = 5;
       dataService.getData()
           .then(result =>
             this.data = result['items']
@@ -32,8 +32,10 @@ class MyController {
   }
   removeFromList(index, indexId){
     let addedElem = document.getElementsByClassName('add-to-list');
+    let clickElem = document.getElementsByClassName('click-container');
     addedElem[indexId].firstChild.innerHTML = 'ADD TO LIST'
     addedElem[indexId].classList.remove('active');
+    clickElem[index].classList.remove('active')
     console.log('removing ', indexId)
     this.count -=1
     this.myList.splice(index, 1);

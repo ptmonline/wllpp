@@ -61,13 +61,10 @@ var MyController = function () {
     this.hello = "Hello Angular";
     this.count = 0;
     this.selectedItem;
-    this.displaymore = 4;
-    this.divAdded = false;
+    this.displaymore = 5;
     dataService.getData().then(function (result) {
       return _this.data = result['items'];
     });
-    // this.reverse;
-    // this.predicate;
   }
 
   _createClass(MyController, [{
@@ -76,19 +73,9 @@ var MyController = function () {
       this.selectedItem = "ng-model='search." + selection + "'";
       console.log(this.selectedItem);
     }
-    // order(predicate) {
-    //     this.reverse = (this.predicate === predicate) ? !this.reverse : false;
-    //     this.predicate = predicate;
-    //   };
-
   }, {
     key: 'addToMyList',
     value: function addToMyList(item, index) {
-      console.log(index);
-
-      // this.divAdded = false;
-      var self = this;
-
       var addedElem = document.getElementsByClassName('add-to-list');
       addedElem[index].firstChild.innerHTML = 'ADDED';
       var clickElem = document.getElementsByClassName('click-container');
@@ -99,19 +86,6 @@ var MyController = function () {
         this.myList.push(item);
         this.count += 1;
       }
-      // console.log(typeof addedElem)
-      // addedElem.forEach(function(elem){
-      //   console.log('hello')
-      // })
-      // console.log(addedElem)
-      // if(addedElem.classList.contains('active')){
-      //   // addedElem.classList.remove('active');
-      //   addedElem.innerHTML = 'ALREADY ADDED';
-      //   console.log('yes')
-      // }
-      // addedElem.firstChild.innerHTML = 'ALREADY ADDED';
-      self.divAdded = true;
-      console.log(self.divAdded);
       this.itemId.push(index);
       console.log(this.itemId);
     }
@@ -119,8 +93,10 @@ var MyController = function () {
     key: 'removeFromList',
     value: function removeFromList(index, indexId) {
       var addedElem = document.getElementsByClassName('add-to-list');
+      var clickElem = document.getElementsByClassName('click-container');
       addedElem[indexId].firstChild.innerHTML = 'ADD TO LIST';
       addedElem[indexId].classList.remove('active');
+      clickElem[index].classList.remove('active');
       console.log('removing ', indexId);
       this.count -= 1;
       this.myList.splice(index, 1);
@@ -128,11 +104,6 @@ var MyController = function () {
       console.log(index);
       console.log(this.itemId);
     }
-    // openModal(){
-    //   let myblank = document.getElementById('blank');
-    //   myblank.classList.remove('hidden');
-    // }
-
   }, {
     key: 'closeModal',
     value: function closeModal() {
