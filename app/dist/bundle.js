@@ -58,6 +58,8 @@ var MyController = function () {
 
     this.myList = [];
     this.itemId = [];
+    this.addedElem = document.getElementsByClassName('add-to-list');
+    this.clickElem = document.getElementsByClassName('click-container');
     this.count = 0;
     this.selectedItem;
     this.displaymore = 5;
@@ -69,27 +71,34 @@ var MyController = function () {
   _createClass(MyController, [{
     key: 'addToMyList',
     value: function addToMyList(item, index) {
-      var addedElem = document.getElementsByClassName('add-to-list');
-      addedElem[index].firstChild.innerHTML = 'ADDED';
-      var clickElem = document.getElementsByClassName('click-container');
-      addedElem[index].classList.add('active');
-      if (clickElem[index].classList.contains('active')) {
+      console.log('adding index: ', index);
+      console.log(item);
+      // let addedElem = document.getElementsByClassName('add-to-list');
+      this.addedElem[index].firstChild.innerHTML = 'ADDED';
+      // let clickElem = document.getElementsByClassName('click-container');
+      this.addedElem[index].classList.add('active');
+      if (this.clickElem[index].classList.contains('active')) {
         return false;
+        console.log('no');
       } else {
+        console.log('yes');
         this.myList.push(item);
         this.count += 1;
-        clickElem[index].classList.add('active');
+        console.log(this.myList);
+        this.clickElem[index].classList.add('active');
       }
       this.itemId.push(index);
     }
   }, {
     key: 'removeFromList',
     value: function removeFromList(index, indexId) {
-      var addedElem = document.getElementsByClassName('add-to-list');
-      var clickElem = document.getElementsByClassName('click-container');
-      addedElem[indexId].firstChild.innerHTML = 'ADD TO LIST';
-      addedElem[indexId].classList.remove('active');
-      clickElem[indexId].classList.remove('active');
+      console.log('index 1: ', index);
+      console.log('index ID: ', indexId);
+      // let addedElem = document.getElementsByClassName('add-to-list');
+      // let clickElem = document.getElementsByClassName('click-container');
+      this.addedElem[indexId].firstChild.innerHTML = 'ADD TO LIST';
+      this.addedElem[indexId].classList.remove('active');
+      this.clickElem[indexId].classList.remove('active');
       this.count -= 1;
       this.myList.splice(index, 1);
       this.itemId.splice(index, 1);
@@ -173,12 +182,18 @@ var ItemContainer = function ItemContainer() {
 
       this.templateUrl = './templates/item.directive.html';
       this.restrict = 'E';
-      this.replace = false;
+      this.replace = true;
       this.controller = 'MyController';
       this.controllerAs = 'myCtrl';
       this.bindToController = true;
       this.transclude = true;
-};
+}
+// link(scope, element){
+//   element.on('click', function(e){
+//     element.addClass('active');
+//   })
+// }
+;
 
 exports.default = ItemContainer;
 

@@ -170,7 +170,7 @@
 .boxmodel .add-to-list:hover {
   opacity: 1;
 }
-.boxmodel .add-to-list.active:hover {
+.boxmodel .add-to-list.active {
   opacity: 0.3;
   z-index: 9999999;
 }

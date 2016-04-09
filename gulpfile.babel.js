@@ -24,5 +24,6 @@ gulp.task('less', () => {
 });
 
 gulp.task('watch', () =>{
-	gulp.watch('./app/less/*.less', ['less']);
+	gulp.watch('./app/less/*.less', ['less']); 
+	gulp.watch('./app/app.js', ['default']);
 })

@@ -1,5 +1,5 @@
 <div class="grid-item boxmodel col span_3_of_12"   ng-repeat="items in myCtrl.data | filter:search | filter:searchprice:true | orderBy:orderCtrl.predicate:reverse | limitTo:myCtrl.displaymore track by $index">
-  <div class="click-container"  ng-click="myCtrl.addToMyList(items, $index); selected = $index">
+  <div class="click-container" ng-click="myCtrl.addToMyList(items, $index)">
     <img ng-src="assets/{{items.image}}" alt ="{{itmes.title}}"  width="280" height="280" />
     <div class="item-model-content">
       <h3>{{items.title}}</h3>

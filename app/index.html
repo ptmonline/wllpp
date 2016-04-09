@@ -11,31 +11,11 @@
   </head>
   <body ng-controller="MyController as myCtrl">
     <navbar-container></navbar-container>
-    <div class="item-wrapper section group"  infinite-scroll='myCtrl.loadMore()' infinite-scroll-distance='2'>
-        <!-- <div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }' > -->
-
-          <item-container></item-container>
-
-      <!-- </div> -->
-
+    <div class="item-wrapper"  infinite-scroll='myCtrl.loadMore()' infinite-scroll-distance='2'>
+        <item-container></item-container>
     </div>
     <modal-container></modal-container>
   </body>
-  <!-- <script src="dist/bundle.js" charset="utf-8"></script> -->
   <script src="dist/bundle.js" charset="utf-8"></script>
   <script src="scripts/infiniteScroll.js" charset="utf-8"></script>
-  <script type="text/javascript">
-  //init with element
-    // setTimeout(function(){
-    //   var grid = document.querySelector('.grid');
-    //   var msnry = new Masonry( grid, {
-    //   // options...
-    //   itemSelector: '.grid-item',
-    //   columnWidth: 120
-    //   });
-    //
-    //   console.log('Hello')
-    // }, 1000)
-
-  </script>
 </html>
