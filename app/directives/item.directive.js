@@ -9,11 +9,6 @@ class ItemContainer{
         this.bindToController = true;
         this.transclude= true;
   }
-  // link(scope, element){
-  //   element.on('click', function(e){
-  //     element.addClass('active');
-  //   })
-  // }
 }
 
 export default ItemContainer;

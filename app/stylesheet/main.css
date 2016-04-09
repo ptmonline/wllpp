@@ -148,32 +148,6 @@
   display: block;
   margin: 0 auto;
 }
-.boxmodel .add-to-list {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.7);
-  opacity: 0;
-  transition: opacity 1s;
-  z-index: 0;
-}
-.boxmodel .add-to-list span {
-  font-size: 32px;
-  font-family: 'Helvetica', sans-serif;
-  display: block;
-  color: #ffffff;
-  margin: 5em auto 0;
-  text-align: center;
-}
-.boxmodel .add-to-list:hover {
-  opacity: 1;
-}
-.boxmodel .add-to-list.active {
-  opacity: 0.3;
-  z-index: 9999999;
-}
 /******************************************************************************/
 /* **********           MODAL LAYOUT             ******************************/
 /******************************************************************************/
@@ -325,9 +299,6 @@
     float: left;
     width: 130px !important;
     height: 130px !important;
-  }
-  .boxmodel .add-to-list span {
-    margin: 2.5em auto 0;
   }
   .header-wrapper {
     height: 50px;

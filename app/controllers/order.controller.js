@@ -13,6 +13,7 @@ class OrderController{
     myblank.classList.remove('hidden');
   }
   openMobileHeader(){
+    //TODO: Refactor this!
     let brg = document.getElementById('brgbtn');
     let hbox = document.getElementById('header-box');
     brg.classList.toggle('open');
