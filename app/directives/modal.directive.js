@@ -4,8 +4,8 @@ class ModalContainer{
         this.templateUrl = './templates/modal.directive.html';
         this.restrict = 'E';
         this.replace = false;
-        this.controller = 'MyController';
-        this.controllerAs = 'myCtrl';
+        this.controller = 'LayoutController';
+        this.controllerAs = 'layoutCtrl';
         this.bindToController = true;
         this.transclude= true
   }

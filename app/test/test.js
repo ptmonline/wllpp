@@ -1,29 +1,23 @@
 import angular from 'angular'
-// import angularmock from 'angular-mock'
-import MyController from '../controllers/myController.js';
-import DataService from '../services/serviceData.js';
-let foo;
-let bar;
-describe('ES6 Foo', function () {
+import LayoutController from '../controllers/layoutController.js';
+import DataService from '../services/service.data.js';
+//TODO: Create test
+describe('ES6 Test', function () {
 
-//   let dataService;
 //   beforeEach(inject(function(_dataService_) {
 //   dataService = _dataService_;
 // }));
-// let _myService;
-// beforeEach(inject(['myService.foo', function (myService) {
-//     _myService = myService;
-// }]));
+
     beforeEach(()=>{
         bar = DataService.getData();
-        foo = new MyController();
+        foo = new LayoutController();
     });
 
     it('should return Hello Angular', ()=>{
         expect(foo.hello).toEqual('Hello Angular');
         expect(foo.myList).toEqual([]);
     });
-    it('should return Do Something when calling doSomething', ()=>{
+    it('should return array', ()=>{
         expect(foo.myList).toEqual([]);
     });
 });

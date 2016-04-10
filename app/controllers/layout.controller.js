@@ -1,5 +1,5 @@
 'use strict';
-class MyController {
+class LayoutController {
   constructor(dataService) {
       this.myList = [];
       this.itemId = [];
@@ -12,11 +12,13 @@ class MyController {
           );
   }
   addToMyList(item, index){
+    //TODO: Refactor this
     this.myList.push(item);
     this.count +=1;
     this.itemId.push(index);
   }
   removeFromList(index, indexId){
+    //TODO: Refactor this
     this.count -=1
     this.myList.splice(index, 1);
     this.itemId.splice(index, 1)
@@ -30,5 +32,5 @@ class MyController {
   }
 }
 
-MyController.$inject = ['dataService'];
-export default MyController;
+LayoutController.$inject = ['dataService'];
+export default LayoutController;

@@ -5,13 +5,13 @@ var _angular = require('angular');
 
 var _angular2 = _interopRequireDefault(_angular);
 
-var _serviceData = require('./services/serviceData.js');
+var _serviceData = require('./services/service.data.js');
 
 var _serviceData2 = _interopRequireDefault(_serviceData);
 
-var _myController = require('./controllers/myController.js');
+var _layoutController = require('./controllers/layout.controller.js');
 
-var _myController2 = _interopRequireDefault(_myController);
+var _layoutController2 = _interopRequireDefault(_layoutController);
 
 var _orderController = require('./controllers/order.controller.js');
 
@@ -31,7 +31,7 @@ var _navbarDirective2 = _interopRequireDefault(_navbarDirective);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_angular2.default.module('wallapop', ['infinite-scroll']).service('dataService', _serviceData2.default).controller('MyController', _myController2.default).controller('OrderController', _orderController2.default).directive('itemContainer', function () {
+_angular2.default.module('wallapop', ['infinite-scroll']).service('dataService', _serviceData2.default).controller('LayoutController', _layoutController2.default).controller('OrderController', _orderController2.default).directive('itemContainer', function () {
   return new _itemDirective2.default();
 }).directive('modalContainer', function () {
   return new _modalDirective2.default();
@@ -39,7 +39,7 @@ _angular2.default.module('wallapop', ['infinite-scroll']).service('dataService',
   return new _navbarDirective2.default();
 });
 
-},{"./controllers/myController.js":2,"./controllers/order.controller.js":3,"./directives/item.directive.js":4,"./directives/modal.directive.js":5,"./directives/navbar.directive.js":6,"./services/serviceData.js":7,"angular":9}],2:[function(require,module,exports){
+},{"./controllers/layout.controller.js":2,"./controllers/order.controller.js":3,"./directives/item.directive.js":4,"./directives/modal.directive.js":5,"./directives/navbar.directive.js":6,"./services/service.data.js":7,"angular":9}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50,11 +50,11 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var MyController = function () {
-  function MyController(dataService) {
+var LayoutController = function () {
+  function LayoutController(dataService) {
     var _this = this;
 
-    _classCallCheck(this, MyController);
+    _classCallCheck(this, LayoutController);
 
     this.myList = [];
     this.itemId = [];
@@ -66,9 +66,10 @@ var MyController = function () {
     });
   }
 
-  _createClass(MyController, [{
+  _createClass(LayoutController, [{
     key: 'addToMyList',
     value: function addToMyList(item, index) {
+      //TODO: Refactor this
       this.myList.push(item);
       this.count += 1;
       this.itemId.push(index);
@@ -76,6 +77,7 @@ var MyController = function () {
   }, {
     key: 'removeFromList',
     value: function removeFromList(index, indexId) {
+      //TODO: Refactor this
       this.count -= 1;
       this.myList.splice(index, 1);
       this.itemId.splice(index, 1);
@@ -93,11 +95,11 @@ var MyController = function () {
     }
   }]);
 
-  return MyController;
+  return LayoutController;
 }();
 
-MyController.$inject = ['dataService'];
-exports.default = MyController;
+LayoutController.$inject = ['dataService'];
+exports.default = LayoutController;
 
 },{}],3:[function(require,module,exports){
 'use strict';
@@ -133,6 +135,7 @@ var OrderController = function () {
   }, {
     key: 'openMobileHeader',
     value: function openMobileHeader() {
+      //TODO: Refactor this!
       var brg = document.getElementById('brgbtn');
       var hbox = document.getElementById('header-box');
       brg.classList.toggle('open');
@@ -160,17 +163,11 @@ var ItemContainer = function ItemContainer() {
       this.templateUrl = './templates/item.directive.html';
       this.restrict = 'E';
       this.replace = true;
-      this.controller = 'MyController';
-      this.controllerAs = 'myCtrl';
+      this.controller = 'LayoutController';
+      this.controllerAs = 'layoutCtrl';
       this.bindToController = true;
       this.transclude = true;
-}
-// link(scope, element){
-//   element.on('click', function(e){
-//     element.addClass('active');
-//   })
-// }
-;
+};
 
 exports.default = ItemContainer;
 
@@ -189,8 +186,8 @@ var ModalContainer = function ModalContainer() {
       this.templateUrl = './templates/modal.directive.html';
       this.restrict = 'E';
       this.replace = false;
-      this.controller = 'MyController';
-      this.controllerAs = 'myCtrl';
+      this.controller = 'LayoutController';
+      this.controllerAs = 'layoutCtrl';
       this.bindToController = true;
       this.transclude = true;
 };

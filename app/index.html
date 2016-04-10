@@ -2,16 +2,16 @@
 <html ng-app="wallapop">
   <head>
     <meta charset="utf-8">
-    <title>WALLAPOP</title>
+    <title>test</title>
     <meta name="viewport" content="width=device-width">
     <script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
     <link rel="stylesheet" href="stylesheet/grid.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="stylesheet/main.css" media="screen" title="no title" charset="utf-8">
 
   </head>
-  <body ng-controller="MyController as myCtrl">
+  <body ng-controller="LayoutController as layoutCtrl">
     <navbar-container></navbar-container>
-    <div class="item-wrapper"  infinite-scroll='myCtrl.loadMore()' infinite-scroll-distance='2'>
+    <div class="item-wrapper"  infinite-scroll='layoutCtrl.loadMore()' infinite-scroll-distance='2'>
         <item-container></item-container>
     </div>
     <modal-container></modal-container>

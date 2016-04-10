@@ -24,6 +24,7 @@
     "browserify": "^13.0.0",
     "chai": "^3.5.0",
     "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.5",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.22",
     "karma-browserify": "^5.0.3",
