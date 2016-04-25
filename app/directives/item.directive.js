@@ -1,14 +1,11 @@
 'use strict';
-class ItemContainer{
-  constructor() {
-        this.templateUrl = './templates/item.directive.html';
-        this.restrict = 'E';
-        this.replace = true;
-        this.controller = 'LayoutController';
-        this.controllerAs = 'layoutCtrl';
-        this.bindToController = true;
-        this.transclude= true;
-  }
-}
-
-export default ItemContainer;
+angular.module('wallapop')
+  .directive('itemContainer', function(){
+    return{
+      restrict: 'E',
+      replace: false,
+      templateUrl: './templates/item.directive.html',
+      controller: './controllers/layout.controller.js',
+      controllerAs: 'layoutCtrl',
+    }
+  })

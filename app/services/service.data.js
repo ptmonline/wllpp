@@ -1,14 +1,6 @@
-'use strict';
-class DataService {
-    constructor($http) {
-      this.$http = $http;
-    }
-    getData() {
-      return this.$http.get('items.json')
-        .then(result => {
-          return result.data;
-        });
-      }
-  }
+'use-strict';
 
-export default DataService;
+angular.module('wallapop')
+.factory('JsonService', function($resource) {
+  return $resource('items.json');
+});

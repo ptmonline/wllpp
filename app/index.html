@@ -5,17 +5,33 @@
     <title>test</title>
     <meta name="viewport" content="width=device-width">
     <script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
+    <script src="/scripts/vendors/angular.js" charset="utf-8"></script>
+    <script src="/scripts/vendors/angular-route.js" charset="utf-8"></script>
+    <script src="/scripts/vendors/angular-resource.js" charset="utf-8"></script>
     <link rel="stylesheet" href="stylesheet/grid.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="stylesheet/main.css" media="screen" title="no title" charset="utf-8">
 
   </head>
-  <body ng-controller="LayoutController as layoutCtrl">
+  <body>
     <navbar-container></navbar-container>
-    <div class="item-wrapper"  infinite-scroll='layoutCtrl.loadMore()' infinite-scroll-distance='2'>
+    <!-- <div class="item-wrapper"  infinite-scroll='layoutCtrl.loadMore()' infinite-scroll-distance='2'>
         <item-container></item-container>
-    </div>
+    </div> -->
+    <ng-view></ng-view>
     <modal-container></modal-container>
   </body>
-  <script src="dist/bundle.js" charset="utf-8"></script>
-  <script src="scripts/infiniteScroll.js" charset="utf-8"></script>
+  <!-- App -->
+  <script src="app.js" charset="utf-8"></script>
+  <!-- Routes -->
+  <script src="routes.js" charset="utf-8"></script>
+  <!-- controllers -->
+  <script src="/controllers/layout.controller.js" charset="utf-8"></script>
+  <script src="/controllers/order.controller.js" charset="utf-8"></script>
+  <!-- services -->
+  <script src="/services/service.data.js" charset="utf-8"></script>
+  <!-- directives -->
+  <script src="/directives/navbar.directive.js" charset="utf-8"></script>
+  <script src="/directives/item.directive.js" charset="utf-8"></script>
+
+
 </html>
