@@ -1,9 +1,7 @@
 angular.module('wallapop')
-  .controller('layoutController', function($scope, JsonService){
+  .controller('layoutController', function($scope, $http){
     $scope.hello = 'Hello';
-    $scope.data = [];
-    JsonService.get(function(data){
-      $scope.data.push(data)
-      console.log($scope.data)
+    $http.get('items.json').success(function(data){
+      $scope.items = data.items;
     })
   })

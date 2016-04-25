@@ -1,11 +1,11 @@
-<div class="boxmodel col span_3_of_12"   ng-repeat="items in layoutCtrl.data | filter:search | filter:searchprice:true | orderBy:orderCtrl.predicate:reverse | limitTo:layoutCtrl.displaymore">
-  <div class="click-container" ng-click="layoutCtrl.addToMyList(items, $index); selected = true" ng-class="{active: selected === true}">
-    <img ng-src="assets/{{items.image}}" alt ="{{itmes.title}}"  width="280" height="280" />
+<div class="boxmodel col span_3_of_12"   ng-repeat="item in items">
+  <div class="click-container">
+    <img ng-src="assets/{{item.image}}" alt ="{{item.title}}"  width="280" height="280" />
     <div class="item-model-content">
-      <h3>{{items.title}}</h3>
-      <p>{{items.description}}</p>
-      <a ng-href="mailto:{{items.email}}"class="model-item-email">{{items.email}}</a>
-      <p class="model-item-price">$ {{items.price}}</p>
+      <h3>{{item.title}}</h3>
+      <p>{{item.description}}</p>
+      <a ng-href="mailto:{{item.email}}"class="model-item-email">{{item.email}}</a>
+      <p class="model-item-price">$ {{item.price}}</p>
   </div>
 </div>
 </div>

@@ -1,23 +1,10 @@
-import angular from 'angular'
-import LayoutController from '../controllers/layoutController.js';
-import DataService from '../services/service.data.js';
-//TODO: Create test
-describe('ES6 Test', function () {
+describe('PhoneListCtrl', function(){
 
-//   beforeEach(inject(function(_dataService_) {
-//   dataService = _dataService_;
-// }));
+  it('should create "phones" model with 3 phones', function() {
+    var scope = {},
+        ctrl = new layoutCtrl(scope);
 
-    beforeEach(()=>{
-        bar = DataService.getData();
-        foo = new LayoutController();
-    });
+    expect(scope.items.length).toBe(30);
+  });
 
-    it('should return Hello Angular', ()=>{
-        expect(foo.hello).toEqual('Hello Angular');
-        expect(foo.myList).toEqual([]);
-    });
-    it('should return array', ()=>{
-        expect(foo.myList).toEqual([]);
-    });
 });

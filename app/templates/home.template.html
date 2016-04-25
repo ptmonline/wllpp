@@ -1,5 +1,13 @@
 <div class="item-wrapper">
-  <h1>{{hello}}</h1>
-  <h2>Psycho</h2>
-    <!-- <item-container></item-container> -->
+  <div class="boxmodel col span_3_of_12"   ng-repeat="item in items">
+    <div class="click-container">
+      <img ng-src="assets/{{item.image}}" alt ="{{item.title}}"  width="280" height="280" />
+      <div class="item-model-content">
+        <h3>{{item.title}}</h3>
+        <p>{{item.description}}</p>
+        <a ng-href="mailto:{{item.email}}"class="model-item-email">{{item.email}}</a>
+        <p class="model-item-price">$ {{item.price}}</p>
+    </div>
+  </div>
+  </div>
 </div>
