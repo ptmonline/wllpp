@@ -10,25 +10,32 @@ module.exports = function(config) {
           './app/scripts/vendors/angular-resource.js',
           './app/scripts/vendors/angular-route.js',
           './app/app.js',
-          // './app/controllers/MainCtrl.js',
           './app/controllers/layout.controller.js',
           './app/controllers/order.controller.js',
-          './app/test/controllers/controllers_specs.js',
-          './app/test/services/services_specs.js', 
           './app/services/service.data.js',
           './app/services/data.service.js',
           './app/directives/navbar.directive.js',
-          './app/routes.js'
+          './app/routes.js',
+          './app/test/controllers/controllers_specs.js',
+          './app/test/services/services_specs.js',
+          './app/test/directives/directives_specs.js',
+          './app/templates/navbar.directive.html',
 
         ],
 
         exclude: [
         ],
 
-        // preprocessors: {
-        //     './app/**/*.js': ['browserify'],
-        //     './app/test/*.js': ['browserify']
-        // },
+        preprocessors: {
+            // './app/**/*.js': ['browserify'],
+            // './app/test/*.js': ['browserify']
+            './app/templates/navbar.directive.html' : 'ng-html2js'
+        },
+        ngHtml2JsPreprocessor: {
+          stripPrefix: '/Users/joanpautorres/Work/wllpp/',
+          prependPrefix: '/app/',
+          moduleName: 'templates'
+        }
 
         // browserify: {
         //     debug: true,
