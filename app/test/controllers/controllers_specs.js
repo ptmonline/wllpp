@@ -29,17 +29,15 @@ describe('LayoutController', function(){
       expect(module).not.toEqual(null);
     });
 
-    it("Should return $scope.hello right", function(){
-      expect(scope.hello).toEqual('Hello');
-    })
-
     it('should return true and data', function(){
       spyOn(JSONService, 'getData').and.callThrough();
       scope.init();
-      console.log(JSONService.getData())
       expect(JSONService.getData).toHaveBeenCalled();
       expect(scope.items).toBeNull();
+    })
+    it('should return data', function(){
       deferred.resolve(response);
+      scope.$root.$digest();
       expect(scope.items[0].title).not.toBeUndefined();
     })
 });
