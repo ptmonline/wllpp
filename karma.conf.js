@@ -14,6 +14,7 @@ module.exports = function(config) {
           './app/controllers/layout.controller.js',
           './app/controllers/order.controller.js',
           './app/test/controllers/controllers_specs.js',
+          './app/test/services/services_specs.js', 
           './app/services/service.data.js',
           './app/services/data.service.js',
           './app/directives/navbar.directive.js',

@@ -39,5 +39,6 @@ describe('LayoutController', function(){
       deferred.resolve(response);
       scope.$root.$digest();
       expect(scope.items[0].title).not.toBeUndefined();
+      expect(scope.items[0].title).toBe('iPhone 6S Oro');
     })
 });
