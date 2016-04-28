@@ -6,6 +6,6 @@ angular.module('wallapop')
       templateUrl: './templates/navbar.directive.html',
       controller: 'orderController',
       controllerAs: 'orderCtrl',
-      replace: false,
+      replace: true
     }
   })

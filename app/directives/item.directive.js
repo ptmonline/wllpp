@@ -5,7 +5,7 @@ angular.module('wallapop')
       restrict: 'E',
       replace: false,
       templateUrl: './templates/item.directive.html',
-      controller: 'layoutController',
+      controller: 'LayoutController',
       controllerAs: 'layoutCtrl'
     }
   })
