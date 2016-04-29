@@ -19,8 +19,7 @@ module.exports = function(config) {
           './app/test/controllers/controllers_specs.js',
           './app/test/services/services_specs.js',
           './app/test/directives/directives_specs.js',
-          './app/templates/navbar.directive.html',
-
+          './app/templates/*.html'
         ],
 
         exclude: [
@@ -29,12 +28,10 @@ module.exports = function(config) {
         preprocessors: {
             // './app/**/*.js': ['browserify'],
             // './app/test/*.js': ['browserify']
-            './app/templates/navbar.directive.html' : 'ng-html2js'
+            './app/templates/*.html': ['ng-html2js']
         },
         ngHtml2JsPreprocessor: {
-          stripPrefix: '/Users/joanpautorres/Work/wllpp/',
-          prependPrefix: '/app/',
-          moduleName: 'templates'
+          stripPrefix: 'app/'
         }
 
         // browserify: {

@@ -1,7 +1,7 @@
 describe('Testing for Directives', function(){
 
-  beforeEach(module('wallapop','templates'));
-  // beforeEach(module('templates/navbar.directive.html'))
+  beforeEach(module('wallapop'));
+  beforeEach(module('templates/navbar.directive.html'))
 
   var elm, scope, compile;
 
@@ -15,7 +15,7 @@ describe('Testing for Directives', function(){
     elm = compile('<navbar-container></navbar-container>')(scope)
     scope.$digest();
     expect(elm.find('navbar-container').length).toEqual(0);
-    expect(elm.find('h1').html()).toContain("Go Fuck Yourself!!");
+    expect(elm.find('h2').html()).toContain("fuck");
   })
 
 })
