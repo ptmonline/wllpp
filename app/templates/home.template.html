@@ -1,6 +1,6 @@
 <div class="item-wrapper">
   <div class="boxmodel col span_3_of_12"   ng-repeat="item in items">
-    <div class="click-container">
+    <div class="click-container" ng-class="class" ng-click="activeClass()">
       <img ng-src="assets/{{item.image}}" alt ="{{item.title}}"  width="280" height="280" />
       <div class="item-model-content">
         <h3>{{item.title}}</h3>

@@ -8,4 +8,12 @@ angular.module('wallapop')
       })
     }
     $scope.init();
+    $scope.class="not_active";
+    $scope.activeClass = function(){
+      $scope.class === 'not_active' ? $scope.class = "active" : $scope.class = "not_active";
+    };
+    $scope.openModal = function(){
+        var myblank = document.getElementById('blank');
+        myblank.classList.remove('hidden');
+      }
   })
