@@ -13,7 +13,7 @@ angular.module('wallapop')
       $scope.class === 'not_active' ? $scope.class = "active" : $scope.class = "not_active";
     };
     $scope.openModal = function(){
-        var myblank = document.getElementById('blank');
+        var myblank = document.getElementById('blank'); 
         myblank.classList.remove('hidden');
       }
   })
