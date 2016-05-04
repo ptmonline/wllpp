@@ -12,8 +12,61 @@
     <link rel="stylesheet" href="stylesheet/main.css" media="screen" title="no title" charset="utf-8">
 
   </head>
-  <body>
-    <navbar-container></navbar-container>
+  <body ng-controller="LayoutController">
+    <div class="header-wrapper">
+      <div id="brgbtn" class="mobile-menu" ng-click="openMobileHeader()">&nbsp;</div>
+      <div class="mobile-menu-list">
+        <div class="myList"  ng-model="count" ng-click="openModal()">My List {{count}}</div>
+      </div>
+      <div id="header-box" class="header section group">
+          <div class="col span_3_of_12">
+            <div class="modelsearch model-title">
+              <label>Search by title</label>
+              <input type="text" ng-model="search.title">
+          </div>
+        </div>
+        <div class="col span_3_of_12">
+          <div class="modelsearch model-title">
+            <label>Search by desciption</label>
+            <input type="text" ng-model="search.description">
+          </div>
+        </div>
+        <div class="col span_2_of_12">
+          <div class="modelsearch model-title">
+            <label>Search by email</label>
+            <input type="text" ng-model="search.email">
+          </div>
+        </div>
+        <div class="col span_2_of_12">
+          <div class="modelsearch model-title">
+            <label>Search by price</label>
+            <input type="text" ng-model="searchprice.price">
+          </div>
+        </div>
+        <div class="col span_2_of_12">
+          <div class="myList"  ng-click="openModal()">my favourite {{selectedProducts.length}}</div>
+        </div>
+      </div>
+      <div class="order-menu section group">
+        <div class="order-tag col span_3_of_12">Order By:</div>
+        <div class="col span_2_of_12">
+          <div class="order-btn" ng-click="order('title')">title</div>
+           <span class="sortorder" ng-show="predicate === 'title'" ng-class="{reverse:reverse}"></span>
+        </div>
+        <div class="col span_2_of_12">
+        <div class="order-btn" ng-click="order('description')">description</div>
+          <span class="sortorder" ng-show="predicate === 'description'" ng-class="{reverse:reverse}"></span>
+        </div>
+        <div class="col span_2_of_12">
+        <div class="order-btn" ng-click="order('email')">email</div>
+           <span class="sortorder" ng-show="predicate === 'email'" ng-class="{reverse:reverse}"></span>
+        </div>
+        <div class="col span_2_of_12">
+        <div class="order-btn" ng-click="order('price')">price</div>
+           <span class="sortorder" ng-show="predicate === 'price'" ng-class="{reverse:reverse}"></span>
+        </div>
+      </div>
+    </div>
     <!-- <div class="item-wrapper"  infinite-scroll='layoutCtrl.loadMore()' infinite-scroll-distance='2'>
         <item-container></item-container>
     </div> -->
@@ -26,12 +79,12 @@
   <script src="routes.js" charset="utf-8"></script>
   <!-- controllers -->
   <script src="/controllers/layout.controller.js" charset="utf-8"></script>
-  <script src="/controllers/order.controller.js" charset="utf-8"></script>
+  <!-- <script src="/controllers/order.controller.js" charset="utf-8"></script> -->
   <!-- services -->
   <!-- <script src="/services/service.data.js" charset="utf-8"></script> -->
   <script src="/services/data.service.js" charset="utf-8"></script>
   <!-- directives -->
-  <script src="/directives/navbar.directive.js" charset="utf-8"></script>
+  <!-- <script src="/directives/navbar.directive.js" charset="utf-8"></script> -->
   <script src="/directives/modal.directive.js" charset="utf-8"></script>
 
 

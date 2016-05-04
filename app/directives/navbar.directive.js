@@ -4,8 +4,8 @@ angular.module('wallapop')
     return{
       restrict: 'E',
       templateUrl: 'templates/navbar.directive.html',
-      controller: 'orderController',
-      controllerAs: 'orderCtrl',
+      controller: 'LayoutController',
+      controllerAs: 'layoutCtrl',
       replace: true
     }
   })

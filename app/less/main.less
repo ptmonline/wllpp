@@ -25,7 +25,7 @@
   top:0;
   left:0;
   z-index:9999;
-  background-color: @headerWrapper;
+  background-color: @headerWrapper;  
   .mobile-menu{
     display:none;
   }
@@ -108,7 +108,7 @@
   position:relative;
   @media (max-width: 480px){
     width:100%;
-    margin:6em auto 1.25em;   
+    margin:6em auto 1.25em;
   }
 }
 .boxmodel{
@@ -140,6 +140,9 @@
     width:100%;
     height:100%;
     position:relative;
+    &.active{
+      opacity: 0.5;
+    }
   }
   img{
     display:block;

@@ -19,7 +19,6 @@ angular.module('wallapop')
       restrict: 'E',
       replace: false,
       controller: 'LayoutController',
-      controllerAs: 'LayoutCtrl',
       templateUrl: 'templates/modal.directive.html'
     }
   })

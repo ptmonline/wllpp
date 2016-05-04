@@ -24,9 +24,9 @@
 angular.module('wallapop')
   .controller('orderController', function($scope){
     $scope.hello = 'fuck';
-    $scope.openModal = function(){
-        console.log('opening....')
-        var myblank = document.getElementById('blank');
-        myblank.classList.remove('hidden');
-      }
+    // $scope.openModal = function(){
+    //     console.log('opening....')
+    //     var myblank = document.getElementById('blank');
+    //     myblank.classList.remove('hidden');
+    //   }
   })

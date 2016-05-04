@@ -1,6 +1,6 @@
 <div class="item-wrapper">
-  <div class="boxmodel col span_3_of_12"   ng-repeat="item in items">
-    <div class="click-container" ng-class="class" ng-click="activeClass()">
+  <div class="boxmodel col span_3_of_12" ng-click="activeClass(item)"  ng-repeat="item in items | filter:search">
+    <div id="{{$index}}" class="click-container" ng-class="class" ng-click="addProduct(item, $index)">
       <img ng-src="assets/{{item.image}}" alt ="{{item.title}}"  width="280" height="280" />
       <div class="item-model-content">
         <h3>{{item.title}}</h3>

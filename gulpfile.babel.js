@@ -29,5 +29,5 @@ gulp.task('default', ['less', 'transpiler']);
 
 gulp.task('watch', () =>{
 	gulp.watch('./app/less/*.less', ['less']);
-	gulp.watch('./app/app.js', ['transpiler']);
+	// gulp.watch('./app/app.js', ['transpiler']);
 })
